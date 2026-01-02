@@ -6,6 +6,6 @@ Everything included in this project is licensed either through public domain [(P
 
 ## Acknowledgments
 
-Special thanks to [Museopen](https://musopen.org/) for providing music for free use, with specific regards to the [Set Chopin Free](https://www.kickstarter.com/projects/Musopen/set-chopin-free) project and the works of Frederic Chopin.
+Special thanks to [Musopen](https://musopen.org/) for providing music for free use, with specific regards to the [Set Chopin Free](https://www.kickstarter.com/projects/Musopen/set-chopin-free) project and the works of Frederic Chopin.
 
-"His music is a gift shared by all of humanity, yet it's a gift that remains largely encumbered by DRM copyrights and other restrictions." - Aaron Dunn, Museopen Founder
+"His music is a gift shared by all of humanity, yet it's a gift that remains largely encumbered by DRM copyrights and other restrictions." - Aaron Dunn, Musopen Founder
