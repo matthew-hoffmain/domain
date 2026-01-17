@@ -51,12 +51,12 @@ export default function App() {
     <div className="App">
 
         <Container className="TitleBar" maxWidth="md">
-            <Box display="flex" alignItems="center" justifyContent="space-between">
+            <Box display="flex" alignItems="center" justifyContent="center" position="relative">
 
-                <h1 style={{ fontFamily: 'Times New Roman', margin: 0, flex: 1, textAlign: 'center' }}>
+                <h1 style={{ fontFamily: 'Times New Roman', margin: 0 }}>
                     HOFFMA<span className="blink-letter">I</span>N
                 </h1>
-                <Box display="flex" alignItems="center" gap={1}>
+                <Box display="flex" alignItems="center" gap={1} position="absolute" right={0}>
                     <Tooltip title={highlightEnabled ? "Disable highlights" : "Enable highlights"}>
                         <IconButton
                             onClick={toggleHighlight}
@@ -66,6 +66,16 @@ export default function App() {
                             {highlightEnabled ? <HighlightIcon /> : <HighlightOffIcon />}
                         </IconButton>
                     </Tooltip>
+                    <Tooltip title={showMusicPlayer ? "Hide music player" : "Show music player"}>
+                        <IconButton
+                            onClick={() => setShowMusicPlayer(!showMusicPlayer)}
+                            color={showMusicPlayer ? "primary" : "default"}
+                            aria-label="toggle music player"
+                        >
+                            <MusicNoteIcon />
+                        </IconButton>
+                    </Tooltip>
+
                     <ExternalLinkModal
                         href="https://github.com/matthew-hoffmain/domain"
                         title="GitHub Repository"
@@ -80,15 +90,6 @@ export default function App() {
                             </IconButton>
                         </Tooltip>
                     </ExternalLinkModal>
-                    <Tooltip title={showMusicPlayer ? "Hide music player" : "Show music player"}>
-                        <IconButton
-                            onClick={() => setShowMusicPlayer(!showMusicPlayer)}
-                            color={showMusicPlayer ? "primary" : "default"}
-                            aria-label="toggle music player"
-                        >
-                            <MusicNoteIcon />
-                        </IconButton>
-                    </Tooltip>
                 </Box>
             </Box>
         </Container>

@@ -52,7 +52,7 @@ h1 {
 .blink-letter {
   display: inline-block;
   position: relative;
-  animation: blink-letter 6s infinite;
+  animation: blink-letter 4.5s infinite;
 }
 
 @keyframes blink-letter {
