@@ -11,10 +11,41 @@ import HighlightIcon from '@mui/icons-material/Highlight';
 import HighlightOffIcon from '@mui/icons-material/HighlightOff';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import ExternalLinkModal from "./components/ExternalLinkModal";
+import MusicNoteIcon from '@mui/icons-material/MusicNote';
+import MusicPlayer from "./components/MusicPlayer";
+
+const playlists = [
+    {
+        id: 'chopin',
+        name: 'Set Chopin Free',
+        description: 'A set of my personal favorite Chopin pieces, recorded as part of Musopen\'s "Set Chopin Free" Kickstarter Project.',
+        tracks: [
+            {
+                title: "Nocturne Op. 55 No. 1 in F minor",
+                artist: "Frederic Chopin",
+                src: "https://www.classicals.de/s/Classicalsde-Chopin-Nocturne-in-F-minor-Op-55-No-1.mp3",
+                license: {
+                    type: "Non-Commercial License",
+                    url: "https://www.classicals.de/chopin-collection"
+                }
+            },
+            {
+                title: "Nocturne Op. 9 No. 1 in B-flat minor",
+                artist: "Frederic Chopin",
+                src: "https://www.quantumdigitalmedia.de/Classicals-Music/Chopin%20-%20Collection/Classicals.de%20-%20Chopin%20-%20Nocturne%20Op.%209%20no.%201%20in%20B-flat%20minor.mp3",
+                license: {
+                    type: "Non-Commercial License",
+                    url: "https://www.classicals.de/chopin-collection"
+                }
+            },
+        ]
+    },
+];
 
 export default function App() {
   const navigate = useNavigate();
   const { highlightEnabled, toggleHighlight } = useHighlight();
+  const [showMusicPlayer, setShowMusicPlayer] = React.useState(false);
 
   return (
     <div className="App">
@@ -49,9 +80,25 @@ export default function App() {
                             </IconButton>
                         </Tooltip>
                     </ExternalLinkModal>
+                    <Tooltip title={showMusicPlayer ? "Hide music player" : "Show music player"}>
+                        <IconButton
+                            onClick={() => setShowMusicPlayer(!showMusicPlayer)}
+                            color={showMusicPlayer ? "primary" : "default"}
+                            aria-label="toggle music player"
+                        >
+                            <MusicNoteIcon />
+                        </IconButton>
+                    </Tooltip>
                 </Box>
             </Box>
         </Container>
+
+        {showMusicPlayer && (
+            <Container maxWidth="md" sx={{ mt: 2, display: 'flex', justifyContent: 'center' }}>
+                <MusicPlayer playlists={playlists} />
+            </Container>
+        )}
+
         <Box marginBottom={2}>
             <button onClick={() => navigate('/')}>
                 Homepage
