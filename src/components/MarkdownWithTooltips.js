@@ -4,6 +4,13 @@ import { Tooltip, Typography, Box } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import { useHighlight } from './contexts/HighlightContext';
 import ExternalLinkModal from './ExternalLinkModal';
+import definitions from '../definitions.json';
+
+// Create a case-insensitive lookup map
+const definitionsLowerCaseMap = Object.keys(definitions).reduce((acc, key) => {
+    acc[key.toLowerCase()] = key;
+    return acc;
+}, {});
 
 const HighlightedText = styled('span')(({ variant = 'generic' }) => ({
     backgroundColor:
@@ -35,6 +42,9 @@ const HighlightedText = styled('span')(({ variant = 'generic' }) => ({
 }));
 
 
+// Forward declaration - will be defined after processTextWithTooltips
+let processTextWithTooltips;
+
 const TooltipContent = ({ content }) => {
     const imageMatch = content.match(/^(IMG|GIF):(.+)$/);
     const textAndImageMatch = content.match(/^(.+?)\s*\|\s*(IMG|GIF):(.+)$/);
@@ -63,7 +73,7 @@ const TooltipContent = ({ content }) => {
                     fontSize: '0.875rem',
                     color: 'inherit'
                 }}>
-                    {text.trim()}
+                    {processTextWithTooltips(text.trim(), true)}
                 </Typography>
                 <img
                     src={url}
@@ -82,23 +92,21 @@ const TooltipContent = ({ content }) => {
                 fontSize: '0.875rem',
                 maxWidth: '300px'
             }}>
-                {content}
+                {processTextWithTooltips(content, true)}
             </Typography>
         );
     }
 };
 
-const processTextWithTooltips = (text, highlightEnabled = true) => {
+processTextWithTooltips = (text, highlightEnabled = true) => {
     if (typeof text !== 'string') return text;
 
     if (!highlightEnabled) {
-        const tooltipRegex = /(\[\[([^:]+)::([^\]]+)]]|\{\{([^:]+)::([^}]+)}}|#\[([^:]+)::([^\]]+)]|@\[([^:]+)::([^\]]+)])/g;
-        return text.replace(tooltipRegex, (match, fullMatch, genericWord, genericDef, profWord, profDef, acadWord, acadDef, persWord) => {
-            return genericWord || profWord || acadWord || persWord || match;
-        });
+        const tooltipRegex = /\[\[([^:\]]+)(?:::([^\]]+))?]]/g;
+        return text.replace(tooltipRegex, (match, word) => word);
     }
 
-    const tooltipRegex = /(\[\[([^:]+)::([^\]]+)]]|\{\{([^:]+)::([^}]+)}}|#\[([^:]+)::([^\]]+)]|@\[([^:]+)::([^\]]+)])/g;
+    const tooltipRegex = /\[\[([^:\]]+)(?:::([^\]]+))?]]/g;
 
     if (!tooltipRegex.test(text)) {
         return text;
@@ -115,49 +123,57 @@ const processTextWithTooltips = (text, highlightEnabled = true) => {
             parts.push(text.slice(lastIndex, match.index));
         }
 
-        let word, definition, variant;
+        const word = match[1];
+        const inlineDefinition = match[2];
 
-        if (match[0].startsWith('[[')) {
-            word = match[2];
-            definition = match[3];
+        // Check definitions.json first (case-insensitive), then fall back to in-text definition
+        const wordLowerCase = word.toLowerCase();
+        const originalKey = definitionsLowerCaseMap[wordLowerCase];
+        const jsonDefinition = originalKey ? definitions[originalKey] : null;
+        let finalDefinition, variant;
+
+        if (jsonDefinition) {
+            if (typeof jsonDefinition === 'string') {
+                finalDefinition = jsonDefinition;
+                variant = 'generic';
+            } else {
+                finalDefinition = jsonDefinition.text;
+                variant = jsonDefinition.type || 'generic';
+            }
+        } else {
+            finalDefinition = inlineDefinition;
             variant = 'generic';
-        } else if (match[0].startsWith('{{')) {
-            word = match[4];
-            definition = match[5];
-            variant = 'professional';
-        } else if (match[0].startsWith('#[')) {
-            word = match[6];
-            definition = match[7];
-            variant = 'academic';
-        } else if (match[0].startsWith('@[')) {
-            word = match[8];
-            definition = match[9];
-            variant = 'personal';
         }
 
-        parts.push(
-            <Tooltip
-                key={match.index}
-                title={<TooltipContent content={definition} />}
-                placement="top"
-                arrow
-                slotProps={{
-                    tooltip: {
-                        sx: {
-                            bgcolor: '#333',
-                            color: 'white',
-                            fontSize: '0.875rem',
-                            maxWidth: 'none',
-                            '& .MuiTooltip-arrow': {
-                                color: '#333',
+        if (finalDefinition) {
+            parts.push(
+                <Tooltip
+                    key={match.index}
+                    title={<TooltipContent content={finalDefinition} />}
+                    placement="top"
+                    arrow
+                    slotProps={{
+                        tooltip: {
+                            sx: {
+                                bgcolor: '#333',
+                                color: 'white',
+                                fontSize: '0.875rem',
+                                maxWidth: 'none',
+                                '& .MuiTooltip-arrow': {
+                                    color: '#333',
+                                },
                             },
                         },
-                    },
-                }}
-            >
-                <HighlightedText variant={variant}>{word}</HighlightedText>
-            </Tooltip>
-        );
+                    }}
+                >
+                    <HighlightedText variant={variant}>{word}</HighlightedText>
+                </Tooltip>
+            );
+        } else {
+            parts.push(
+                <HighlightedText key={match.index} variant={variant}>{word}</HighlightedText>
+            );
+        }
 
         lastIndex = match.index + match[0].length;
     }

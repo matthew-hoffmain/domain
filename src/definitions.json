@@ -1,6 +1,47 @@
 {
   "Matthew Hoffman": {
     "text": "The creator of this website.",
-    "last-updated": "2026-01-15"
+    "type": "personal",
+    "last-updated": "Jan. 15, 2026"
+  },
+  "highlights": {
+    "text": "You just hovered over highlighted text!",
+    "type": "generic"
+  },
+  "Creative Commons": {
+    "text": "A nonprofit organization that provides free licenses allowing creators to share their work legally while retaining certain rights.",
+    "type": "generic"
+  },
+  "dictionary": {
+    "text": "A collection of all defined terms used throughout this website, organized alphabetically.",
+    "type": "generic"
+  },
+  "generic": {
+    "text": "General terms and concepts that apply broadly across contexts.",
+    "type": "generic"
+  },
+  "professional": {
+    "text": "Terms related to career, work, and professional development.",
+    "type": "professional"
+  },
+  "academic": {
+    "text": "Scholarly and educational terms, concepts, and frameworks.",
+    "type": "academic"
+  },
+  "personal": {
+    "text": "Terms with personal significance or individual context.",
+    "type": "personal"
+  },
+  "open-source": {
+    "text": "Software whose source code is publicly available and can be freely used, modified, and distributed.",
+    "type": "generic"
+  },
+  "public domain": {
+    "text": "Works that are not protected by intellectual property rights and are available for anyone to use freely.",
+    "type": "generic"
+  },
+  "nocturnes": {
+    "text": "A series of musical compositions inspired by the night, often characterized by a dreamy and introspective mood.",
+    "type": "personal"
   }
 }
