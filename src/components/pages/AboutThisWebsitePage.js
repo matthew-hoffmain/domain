@@ -7,13 +7,37 @@ import React from "react";
 export default function AboutThisWebsitePage() {
     return (
         <Container maxWidth={"md"}>
-            <h2 align={"left"}>About This Website (i.e: why I've brought you here)</h2>
+            <h2 align={"left"}>About This Website</h2>
             <MarkdownWithTooltips align={"justify"}>
                 {'This website is designed to include only highly-permissible software licensing and works included ' +
                     'in the public domain or acquired via [[Creative Commons]]. This is part of an intentional effort ' +
                     'to create a domain that is indefinitely accessible, reproducible, and modifiable by anyone who ' +
                     'wishes to do so. As such, this website is open-source and includes the MIT License.'}
             </MarkdownWithTooltips>
+            <Accordion disableGutters>
+                <AccordionSummary expandIcon={<ExpandMoreIcon />}>
+                    <Typography fontStyle="italic">Why make this website? (Short version)</Typography>
+                </AccordionSummary>
+                <AccordionDetails>
+                    <MarkdownWithTooltips align={"justify"}>
+                        {'I created this website for two main reasons:\n\n' +
+                        '1. To create an online portfolio to showcase my interests and skills.\n\n' +
+                            '2. To educate others and myselves on the importance of using free-use and open-source ' +
+                            'materials in web development and digital content creation.'}
+                    </MarkdownWithTooltips>
+                </AccordionDetails>
+            </Accordion>
+            <Accordion disableGutters>
+                <AccordionSummary expandIcon={<ExpandMoreIcon />}>
+                    <Typography fontStyle="italic">Why make this website? (Long version)</Typography>
+                </AccordionSummary>
+                <AccordionDetails>
+                    <MarkdownWithTooltips align={"justify"}>
+                        {'The source of each definition is viewable from the dictionary page, which can be accessed ' +
+                            'by clicking the any highlighted words.'}
+                    </MarkdownWithTooltips>
+                </AccordionDetails>
+            </Accordion>
             <h2 align={"left"}>Website Features</h2>
             <h3 align={"left"}>Highlighted Text</h3>
             <MarkdownWithTooltips align={"justify"}>

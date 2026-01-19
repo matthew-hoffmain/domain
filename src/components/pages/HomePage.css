@@ -1,0 +1,109 @@
+/* Carousel animations */
+.article-card {
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transform: translateX(0);
+    opacity: 1;
+}
+
+/* Slide out to the left */
+.article-card.slide-left {
+    animation: slideOutLeft 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Slide out to the right */
+.article-card.slide-right {
+    animation: slideOutRight 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes slideOutLeft {
+    0% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    50% {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    51% {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideOutRight {
+    0% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    50% {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    51% {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* Arrow button effects */
+.carousel-arrow {
+    transition: all 0.2s ease-in-out !important;
+}
+
+.carousel-arrow:disabled {
+    opacity: 0.3 !important;
+}
+
+.article-title {
+    font-family: 'Times New Roman';
+    margin: 0;
+    cursor: pointer;
+    position: relative;
+    display: inline-block;
+    padding: 0 4px;
+    background: linear-gradient(to right, #1565c0 0%, #1565c0 50%, #333 50%, #333 100%);
+    background-size: 200% 100%;
+    background-position: 100% 0;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transition: background-position 0.5s ease-out;
+    isolation: isolate;
+}
+
+.article-title h2 {
+    background: inherit;
+    background-clip: inherit;
+    -webkit-background-clip: inherit;
+    -webkit-text-fill-color: inherit;
+}
+
+.article-title::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background-color: #bbdefb;
+    transition: width 0.5s ease-out;
+    z-index: -1;
+}
+
+.article-title:hover {
+    background-position: 0 0;
+}
+
+.article-title:hover::before {
+    width: 100%;
+}
+

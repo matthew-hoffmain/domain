@@ -58,27 +58,27 @@ h1 {
 @keyframes blink-letter {
   0%, 16.66% {
     background: white;
-    color: black;
+    color: #333;
   }
   16.67%, 33.32% {
-    background: black;
+    background: #333;
     color: white;
   }
   33.33%, 49.99% {
     background: white;
-    color: black;
+    color: #333;
   }
   50%, 66.66% {
-    background: black;
-    color: black;
+    background: #333;
+    color: #333;
   }
   66.67%, 83.32% {
     background: white;
     color: white;
   }
   83.33%, 100% {
-    background: black;
-    color: black;
+    background: #333;
+    color: #333;
   }
 }
 
