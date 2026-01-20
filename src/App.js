@@ -7,7 +7,7 @@ import HomePage from "./components/pages/HomePage";
 import DictionaryPage from "./components/pages/DictionaryPage";
 import {Box, Container, IconButton, Tooltip} from "@mui/material";
 import {useHighlight} from "./components/contexts/HighlightContext";
-import NavBar from "./components/NavBar";
+import NavBar from "./components/NavBar/NavBar";
 import AboutMePage from "./components/pages/AboutMePage";
 import TestArticle from "./components/pages/Articles/TestArticle";
 
@@ -27,6 +27,8 @@ export default function App() {
             <Route path="/sandbox" element={<SandboxPage/>}/>
             <Route path="/articles/1" element={<TestArticle/>}/>
         </Routes>
+
+
     </div>
   )
 }

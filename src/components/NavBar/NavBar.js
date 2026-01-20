@@ -1,21 +1,21 @@
 import React from "react";
-import {Box, Container, IconButton, Tooltip} from "@mui/material";
+import {Box, Container, IconButton, Paper, Tooltip} from "@mui/material";
 import HighlightIcon from "@mui/icons-material/Highlight";
 import HighlightOffIcon from "@mui/icons-material/HighlightOff";
-import {useHighlight} from "./contexts/HighlightContext";
+import {useHighlight} from "../contexts/HighlightContext";
 import GitHubIcon from '@mui/icons-material/GitHub';
-import ExternalLinkModal from "../components/ExternalLinkModal";
+import ExternalLinkModal from "../ExternalLinkModal";
 import MusicNoteIcon from '@mui/icons-material/MusicNote';
-import MusicPlayer from "../components/MusicPlayer";
+import MusicPlayer from "../MusicPlayer";
 import PersonIcon from '@mui/icons-material/Person';
 import ArticleIcon from '@mui/icons-material/Article';
 import RadioIcon from '@mui/icons-material/Radio';
 import ForumIcon from '@mui/icons-material/Forum';
 import HomeIcon from '@mui/icons-material/Home';
 import AbcIcon from '@mui/icons-material/Abc';
-import MemoryIcon from '@mui/icons-material/Memory';
 import {useNavigate} from "react-router";
 import './NavBar.css';
+import MarkdownWithTooltips from "../MarkdownWithTooltips";
 
 const playlists = [
     {
@@ -50,13 +50,13 @@ export default function NavBar() {
     const [showMusicPlayer, setShowMusicPlayer] = React.useState(false);
     const navigate = useNavigate();
 
-    return <Container className="TitleBar" maxWidth="lg">
+    return <Box display="flex" sx={{ padding: -5, marginBottom: -5 }}>
         <Box display="flex" alignItems="center" justifyContent="space-between" marginBottom={2}>
-            <Box display="flex" alignItems="center" gap={1} sx={{ flex: '1 1 0', padding: 1, justifyContent: 'flex-start' }}>
+            <Paper display="flex" alignItems="center" gap={1} sx={{ flex: '1 1 0', padding: 1, justifyContent: 'flex-start' }}>
                 <Tooltip title="Home">
                     <IconButton
                         onClick={() => navigate('/')}
-                        color="black"
+                        bgColor="black"
                         aria-label="home"
                     >
                         <HomeIcon/>
@@ -73,6 +73,7 @@ export default function NavBar() {
                 </Tooltip>
                 <Tooltip title="About This Website">
                     <IconButton
+                        variant="outlined"
                         onClick={() => navigate('/about_this_website')}
                         color="black"
                         aria-label="about"
@@ -121,15 +122,38 @@ export default function NavBar() {
                         </IconButton>
                     </Tooltip>
                 </ExternalLinkModal>
-            </Box>
+            </Paper>
 
-            <Box sx={{ flex: '1 1 0', padding: 1, display: 'flex', justifyContent: 'center' }}>
-                <h1 className="navbar-title" onClick={() => navigate('/')}>
-                    HOFFMAiN
-                </h1>
-            </Box>
+            <Tooltip
+                title={<Box sx={{ maxWidth: 600, whiteSpace: 'normal' }}>
+                    <MarkdownWithTooltips>{'The personal website of Matthew Hoffman. "Hoffmain" is a [[portmanteau]] of the last name "Hoffman" and the word "main", which in software marks the entry point for a program\'s execution. The website functions similarly as an entryway.'}</MarkdownWithTooltips>
+                </Box>}
+                placement="bottom"
+                arrow
+                slotProps={{
+                    tooltip: {
+                        sx: {
+                            bgcolor: '#333',
+                            color: 'white',
+                            fontSize: '0.875rem',
+                            maxWidth: 600,
+                            whiteSpace: 'pre-wrap',
+                            wordBreak: 'break-word',
+                            '& .MuiTooltip-arrow': {
+                                color: '#333',
+                            },
+                        },
+                    },
+                }}
+            >
+                <Paper sx={{ flex: '1 1 0', padding: 1, display: 'flex', justifyContent: 'center' }}>
+                    <h1 className="navbar-title" onClick={() => navigate('/')}>
+                        HOFFMAiN
+                    </h1>
+                </Paper>
+            </Tooltip>
 
-            <Box display="flex" alignItems="center" gap={1} sx={{ flex: '1 1 0', padding: 1, justifyContent: 'flex-end' }}>
+            <Paper display="flex" alignItems="center" gap={1} sx={{ flex: '1 1 0', padding: 1, justifyContent: 'flex-end' }}>
                 <Tooltip title={highlightEnabled ? "Disable highlights" : "Enable highlights"}>
                     <IconButton
                         onClick={toggleHighlight}
@@ -148,7 +172,7 @@ export default function NavBar() {
                         <MusicNoteIcon />
                     </IconButton>
                 </Tooltip>
-            </Box>
+            </Paper>
         </Box>
 
         {showMusicPlayer && (
@@ -156,5 +180,5 @@ export default function NavBar() {
                 <MusicPlayer playlists={playlists} />
             </Container>
         )}
-    </Container>
+    </Box>
 }

@@ -42,7 +42,6 @@ const HighlightedText = styled('span')(({ variant = 'generic' }) => ({
 }));
 
 
-// Forward declaration - will be defined after processTextWithTooltips
 let processTextWithTooltips;
 
 const TooltipContent = ({ content }) => {

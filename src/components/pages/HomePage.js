@@ -9,9 +9,9 @@ import "./HomePage.css";
 const mockArticles = [
     {
         id: 1,
-        title: "All Your Website Are Belong to Us",
+        title: "You Can't Steal It, It's Yours",
         excerpt: "I designed this [[open-source]] website to be indefinitely accessible, reproducible, and modifiable by using standard [[highly-permissible software licenses]]. " +
-            "Read about why this is important and how I achieved this goal.",
+            "Read about why this is important.",
         date: "January 15, 2026",
         author: "Matthew Hoffman",
         category: "Technology",
@@ -119,7 +119,8 @@ export default function HomePage() {
                         position: 'relative',
                         height: '450px',
                         display: 'flex',
-                        flexDirection: 'column'
+                        flexDirection: 'column',
+                        padding: 1
                     }}>
                         <Box
                             sx={{
@@ -133,7 +134,7 @@ export default function HomePage() {
                             }}
                         >
                             <Box sx={{
-                                height: 8,
+                                height: 20,
                                 backgroundColor: currentArticle.color
                             }} />
 
