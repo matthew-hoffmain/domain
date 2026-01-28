@@ -1,0 +1,206 @@
+[
+  {
+    "id": "personal-recordings",
+    "title": "Personal Recordings",
+    "description": "A collection of audio I personally recorded.",
+    "coverImage": "A_View_of_the_Mountain_Pass.jpeg",
+    "imageTitle": "A View of the Mountain Pass Called the Notch...",
+    "imageCreator": "Thomas Cole",
+    "licenseUrl": "https://www.nga.gov/artworks/50727-view-mountain-pass-called-notch-white-mountains-crawford-notch",
+    "licenseText": "National Gallery of Art (Public Domain)",
+    "tracks": [
+      {
+        "title": "Nocturne Op. 55 No. 1",
+        "artist": "Frédéric Chopin - Performed by Matthew Hoffman",
+        "src": "local-recording",
+        "license": {
+          "type": "Non-Commercial License",
+          "url": "https://www.classicals.de/licensing#non-commercial"
+        }
+      }
+    ]
+  },
+  {
+    "id": "set-chopin-free",
+    "title": "Set Chopin Free - Nocturnes",
+    "description": "A collection of my favorite Frédéric Chopin [[Nocturnes]] made freely available by [Classicals.de](https://classicals.de), from the Kickstarter Project [Set Chopin Free](https://www.kickstarter.com/projects/Musopen/set-chopin-free).",
+    "coverImage": "italian_coast",
+    "imageTitle": "Italian Coast Scene with Ruined Tower",
+    "imageCreator": "Thomas Cole",
+    "licenseUrl": "https://www.nga.gov/artworks/82649-italian-coast-scene-ruined-tower",
+    "licenseText": "National Gallery of Art (Public Domain)",
+    "tracks": [
+      {
+        "title": "Nocturne Op. 9 No. 1 in B-flat minor",
+        "artist": "Frédéric Chopin",
+        "src": "chopin-op9-no1",
+        "license": {
+          "type": "Classicals.de Chopin Collection",
+          "url": "https://www.classicals.de/chopin-collection"
+        }
+      },
+      {
+        "title": "Nocturne Op. 9 No. 2 in E-flat major",
+        "artist": "Frédéric Chopin",
+        "src": "chopin-op9-no2",
+        "license": {
+          "type": "Classicals.de Chopin Collection",
+          "url": "https://www.classicals.de/chopin-collection"
+        }
+      },
+      {
+        "title": "Nocturne Op. 9 No. 3 in B major",
+        "artist": "Frédéric Chopin",
+        "src": "chopin-op9-no3",
+        "license": {
+          "type": "Classicals.de Chopin Collection",
+          "url": "https://www.classicals.de/chopin-collection"
+        }
+      },
+      {
+        "title": "Nocturne Op. 15 No. 1 in F major",
+        "artist": "Frédéric Chopin",
+        "src": "chopin-op15-no1",
+        "license": {
+          "type": "Classicals.de Chopin Collection",
+          "url": "https://www.classicals.de/chopin-collection"
+        }
+      },
+      {
+        "title": "Nocturne Op. 15 No. 2 in F-sharp major",
+        "artist": "Frédéric Chopin",
+        "src": "chopin-op15-no2",
+        "license": {
+          "type": "Classicals.de Chopin Collection",
+          "url": "https://www.classicals.de/chopin-collection"
+        }
+      },
+      {
+        "title": "Nocturne Op. 15 No. 3 in G minor",
+        "artist": "Frédéric Chopin",
+        "src": "chopin-op15-no3",
+        "license": {
+          "type": "Classicals.de Chopin Collection",
+          "url": "https://www.classicals.de/chopin-collection"
+        }
+      },
+      {
+        "title": "Nocturne Op. 27 No. 1 in C-sharp minor",
+        "artist": "Frédéric Chopin",
+        "src": "chopin-op27-no1",
+        "license": {
+          "type": "Classicals.de Chopin Collection",
+          "url": "https://www.classicals.de/chopin-collection"
+        }
+      },
+      {
+        "title": "Nocturne Op. 27 No. 2 in D-flat major",
+        "artist": "Frédéric Chopin",
+        "src": "chopin-op27-no2",
+        "license": {
+          "type": "Classicals.de Chopin Collection",
+          "url": "https://www.classicals.de/chopin-collection"
+        }
+      },
+      {
+        "title": "Nocturne Op. 32 No. 1 in B major",
+        "artist": "Frédéric Chopin",
+        "src": "chopin-op32-no1",
+        "license": {
+          "type": "Classicals.de Chopin Collection",
+          "url": "https://www.classicals.de/chopin-collection"
+        }
+      },
+      {
+        "title": "Nocturne Op. 32 No. 2 in A-flat major",
+        "artist": "Frédéric Chopin",
+        "src": "chopin-op32-no2",
+        "license": {
+          "type": "Classicals.de Chopin Collection",
+          "url": "https://www.classicals.de/chopin-collection"
+        }
+      },
+      {
+        "title": "Nocturne Op. 37 No. 1 in G minor",
+        "artist": "Frédéric Chopin",
+        "src": "chopin-op37-no1",
+        "license": {
+          "type": "Classicals.de Chopin Collection",
+          "url": "https://www.classicals.de/chopin-collection"
+        }
+      },
+      {
+        "title": "Nocturne Op. 48 No. 1 in C minor",
+        "artist": "Frédéric Chopin",
+        "src": "chopin-op48-no1",
+        "license": {
+          "type": "Classicals.de Chopin Collection",
+          "url": "https://www.classicals.de/chopin-collection"
+        }
+      },
+      {
+        "title": "Nocturne Op. 48 No. 2 in F-sharp minor",
+        "artist": "Frédéric Chopin",
+        "src": "chopin-op48-no2",
+        "license": {
+          "type": "Classicals.de Chopin Collection",
+          "url": "https://www.classicals.de/chopin-collection"
+        }
+      },
+      {
+        "title": "Nocturne Op. 55 No. 1 in F minor",
+        "artist": "Frédéric Chopin",
+        "src": "chopin-op55-no1",
+        "license": {
+          "type": "Classicals.de Chopin Collection",
+          "url": "https://www.classicals.de/chopin-collection"
+        }
+      },
+      {
+        "title": "Nocturne Op. 62 No. 1 in B major",
+        "artist": "Frédéric Chopin",
+        "src": "chopin-op62-no1",
+        "license": {
+          "type": "Classicals.de Chopin Collection",
+          "url": "https://www.classicals.de/chopin-collection"
+        }
+      },
+      {
+        "title": "Nocturne Op. 62 No. 2 in E major",
+        "artist": "Frédéric Chopin",
+        "src": "chopin-op62-no2",
+        "license": {
+          "type": "Classicals.de Chopin Collection",
+          "url": "https://www.classicals.de/chopin-collection"
+        }
+      },
+      {
+        "title": "Nocturne Op. posth. 72 in E minor",
+        "artist": "Frédéric Chopin",
+        "src": "chopin-op72",
+        "license": {
+          "type": "Classicals.de Chopin Collection",
+          "url": "https://www.classicals.de/chopin-collection"
+        }
+      },
+      {
+        "title": "Nocturne B. 49 in C-sharp minor 'Lento con gran espressione'",
+        "artist": "Frédéric Chopin",
+        "src": "chopin-b49",
+        "license": {
+          "type": "Classicals.de Chopin Collection",
+          "url": "https://www.classicals.de/chopin-collection"
+        }
+      },
+      {
+        "title": "Nocturne B. 108 in C minor",
+        "artist": "Frédéric Chopin",
+        "src": "chopin-b108",
+        "license": {
+          "type": "Classicals.de Chopin Collection",
+          "url": "https://www.classicals.de/chopin-collection"
+        }
+      }
+    ]
+  }
+]

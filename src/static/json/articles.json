@@ -1,0 +1,62 @@
+[
+  {
+  "id": 1,
+  "title": "You Can't Steal My Site, It's Yours",
+  "folder": "you_cant_steal_it_its_yours",
+  "excerpt": "I designed this [[open-source]] website to be completely redistributable by using standard highly-permissible software licenses. Read about why this is important.",
+  "date": "January 15, 2026",
+  "author": "Matthew Hoffman",
+  "readTime": "5 min read",
+  "buttonText": "Read Full Article"
+  },
+  {
+    "id": 2,
+    "title": "Design of Artificial Intelligence in Legal Technologies",
+    "folder": "design_of_artificial_intelligence_in_legal_technologies",
+    "excerpt": "Examine the changes in the design of AI tools that has allowed their widespread adoption by [[AmLaw100::The definitive ranking of the 100 largest law firms in the United States. Published each spring through the efforts of Law.com Compass and The American Lawyer editorial team, this report offers firm-by-firm data on key financial metrics and deep analysis of the cohort's performance and what it means for the rest of the market. Information includes an examination of revenue, profits, per-lawyer metrics, headcount growth and much more.]] firms.",
+    "date": "October 1, 2025",
+    "author": "Matthew Hoffman",
+    "readTime": "15 min read",
+    "buttonText": "Read Full Article"
+  },
+  {
+    "id": 3,
+    "title": "Dungeons and Dragons with LLMs",
+    "folder": "dungeons_and_dragons_with_llms",
+    "excerpt": "See how I built a Dungeons and Dragons game powered by large language models via prompt-engineering.",
+    "date": "Aug 21, 2024",
+    "author": "Matthew Hoffman",
+    "readTime": "10 min read",
+    "buttonText": "Roll Initiative"
+  },
+  {
+    "id": 4,
+    "title": "Recommendation Engine with Word2Vector",
+    "folder": "recommendation_engine_with_word2vector",
+    "excerpt": "Learn about how I used a simple neural network to create a product recommendation program.",
+    "date": "February 1, 2020",
+    "author": "Matthew Hoffman",
+    "readTime": "5 min read",
+    "buttonText": "Read Full Article"
+  },
+  {
+    "id": 5,
+    "title": "Dimensionality Reduction and Supervised Learning",
+    "folder": "dimensionality_reduction_and_supervised_learning",
+    "excerpt": "Examine how preprocessing with unsupervised learning would impact the performance of a supervised learning model.",
+    "date": "April 30, 2019",
+    "author": "Matthew Hoffman",
+    "readTime": "10 min read",
+    "buttonText": "Read Full Article"
+  },
+  {
+    "id": 6,
+    "title": "Sudoku Solver and GUI",
+    "folder": "sudoku_solver_and_gui",
+    "excerpt": "Explore how I created a Python program to solve user-provided Sudoku puzzles.",
+    "date": "January 31, 2019",
+    "author": "Matthew Hoffman",
+    "readTime": "3 min read",
+    "buttonText": "Read Full Article"
+  }
+]

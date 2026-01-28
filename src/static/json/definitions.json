@@ -1,0 +1,291 @@
+{
+  "AP Scholar with Distinction": {
+    "text": "Granted to students who receive an average score of at least 3.5 on all AP Exams taken, and scores of 3 or higher on five or more of these exams.",
+    "type": "academic",
+    "sources": [
+      {
+        "name": "College Board - AP Scholar Awards",
+        "hyperlink": "https://apstudents.collegeboard.org/awards-recognitions/ap-scholar-awards"
+      }
+    ]
+  },
+  "American Society for Engineering Education (ASEE)": {
+    "text": "A non-profit member association, founded in 1893, dedicated to promoting and improving engineering and engineering technology education. The purpose of ASEE is the advancement of education in all of its functions which pertain to engineering and allied branches of science and technology, including the processes of teaching and learning, counseling, research, extension services and public relations.",
+    "type": "academic",
+    "sources": [
+      {
+        "name": "ASEE Official Website",
+        "hyperlink": "https://www.asee.org/"
+      }
+    ]
+  },
+  "baritone": {
+    "text": "A type of classical male singing voice with a range between bass and tenor, typically spanning from A2 to A4 in vocal range.",
+    "type": "generic",
+    "sources": [
+      {
+        "name": "Britannica - Baritone",
+        "hyperlink": "https://www.britannica.com/art/baritone-vocal-range"
+      }
+    ]
+  },
+  "Central District MMEA Choir": {
+    "text": "A select choir of the Central District of the Massachusetts Music Educators Association (MMEA), bringing together talented high school students from central Massachusetts for advanced choral performances.",
+    "type": "academic",
+    "sources": [
+      {
+        "name": "Massachusetts Music Educators Association",
+        "hyperlink": "http://www.cdmmea.org/"
+      }
+    ]
+  },
+  "copyleft": {
+    "text": "A licensing practice that requires derivative works to be distributed under the same or compatible license terms as the original work, ensuring that software and its modifications remain free and open. It is a play on the word 'copyright'.",
+    "type": "academic",
+    "sources": [
+      {
+        "name": "GNU - What is Copyleft?",
+        "hyperlink": "https://www.gnu.org/licenses/copyleft.html"
+      }
+    ]
+  },
+  "copyright derived works": {
+    "text": "Works that are based upon or incorporate one or more preexisting copyrighted works, such as translations, adaptations, or modifications. The legal status of AI-generated content based on copyrighted training data remains a contentious and evolving area of law.",
+    "type": "professional",
+    "sources": [
+      {
+        "name": "U.S. Copyright Office - Derivative Works",
+        "hyperlink": "https://www.copyright.gov/circs/circ14.pdf"
+      }
+    ]
+  },
+  "Creative Commons": {
+    "text": "A nonprofit organization that provides free licenses allowing creators to share their work legally while retaining certain rights.",
+    "type": "generic",
+    "sources": [
+      {
+        "name": "Creative Commons Official",
+        "hyperlink": "https://creativecommons.org"
+      }
+    ]
+  },
+  "data-mining": {
+    "text": "The process of discovering patterns, correlations, and insights from large datasets using computational methods, often involving automated extraction and analysis of information.",
+    "type": "academic",
+    "sources": [
+      {
+        "name": "IBM - What is Data Mining?",
+        "hyperlink": "https://www.ibm.com/topics/data-mining"
+      }
+    ]
+  },
+  "highlights": {
+    "text": "Interactive text elements on this website that provide additional information through tooltips when hovered over. These can be toggled on or off using the button in the navigation bar.",
+    "type": "generic",
+    "sources": []
+  },
+  "informed policy": {
+    "text": "Public policy decisions and regulations that are based on thorough research, expert analysis, and evidence-based understanding of the issues at hand.",
+    "type": "professional",
+    "sources": [
+      {
+        "name": "National Conferaence of State Legislatures - Informed Policymaking",
+        "hyperlink": "https://www.ncsl.org/center-for-results-driven-governing/policy-snapshot-evidence-informed-policymaking"
+      }
+    ]
+  },
+  "intellectual property": {
+    "text": "A work or invention that is the result of creativity, such as a manuscript or a design, to which one has rights and for which one may apply for a patent, copyright, trademark, etc.",
+    "type": "professional",
+    "sources": [
+      {
+        "name": "WIPO - What is Intellectual Property?",
+        "hyperlink": "https://www.wipo.int/about-ip/en/"
+      }
+    ]
+  },
+  "internet-as-a-corpus": {
+    "text": "The concept of treating the entirety of internet content as a large dataset or corpus for training machine learning models, particularly language models, often without explicit permission from content creators.",
+    "type": "academic",
+    "sources": [
+      {
+        "name": "Lund University - Using the World Wide Web as a corpus",
+        "hyperlink": "https://www.awelu.lu.se/language/corpora-resources-for-writer-autonomy/using-the-world-wide-web-as-a-corpus/"
+      }
+    ]
+  },
+  "Junior State of America": {
+    "text": "Formerly the Junior Statesmen of America, abbreviated JSA, was an American non-partisan youth organization. The purpose of JSA was to help high school students acquire leadership skills and the knowledge necessary to be effective debaters and civic participants. JSA was sponsored by the Junior State of America Foundation Inc. (JSAF, a 501c(3) non-profit corporation), which also operated the JSA Summer Schools. On August 2nd, 2024, it was announced that the organization would be closing and ceasing operations on August 31, 2024.",
+    "type": "academic",
+    "sources": [
+      {
+        "name": "Wikipedia - Junior State of America",
+        "hyperlink": "https://en.wikipedia.org/wiki/Junior_State_of_America"
+      }
+    ]
+  },
+  "LLMs (large language models)": {
+    "text": "Models of the human brain's ability to produce natural language, trained with self-supervised machine learning on a vast amount of text, designed for natural language processing tasks, especially language generation.",
+    "type": "professional",
+    "sources": [
+      {
+        "name": "IBM - What are Large Language Models?",
+        "hyperlink": "https://www.ibm.com/topics/large-language-models"
+      }
+    ]
+  },
+  "Matthew Hoffman": {
+    "text": "The creator of this website.",
+    "type": "personal",
+    "sources": [
+      {
+        "name": "This Website",
+        "hyperlink": "https://hoffmain.com"
+      }
+    ]
+  },
+  "MBA Mock Trial Team": {
+    "text": "Places high school teams from across Massachusetts in simulated courtroom situations where students assume the roles of lawyers, defendants and witnesses in hypothetical cases. More than 1,000 students across the state participate in the competition, and more than 100 lawyers from communities around the state preside over the mock trials as judges, and coaches for the students.",
+    "type": "academic",
+    "sources": [
+      {
+        "name": "Massachusetts Bar Association - Mock Trial",
+        "hyperlink": "https://www.massbar.org/mock-trial"
+      }
+    ]
+  },
+  "Milford High School": {
+    "text": "A public high school located in Milford, Massachusetts, serving students in grades 9-12.",
+    "type": "personal",
+    "sources": [
+      {
+        "name": "Milford Public Schools",
+        "hyperlink": "https://www.milfordpublicschools.com/"
+      }
+    ]
+  },
+  "MIT License": {
+    "text": "A permissive free software license originating at the Massachusetts Institute of Technology. It is a simple and permissive license that allows users to do almost anything with the licensed code, including using, copying, modifying, merging, publishing, distributing, sublicensing, and selling, with minimal restrictions.",
+    "type": "academic",
+    "sources": [
+      {
+        "name": "Open Source Initiative - MIT License",
+        "hyperlink": "https://opensource.org/licenses/MIT"
+      }
+    ]
+  },
+  "National Honors Society": {
+    "text": "One of the oldest, largest, and most widely recognized cocurricular student organizations in American high schools, with 1.4 million members. The purpose of the NHS is to create enthusiasm for scholarship, to recognize outstanding students, to stimulate a desire to render service, to promote leadership, and to develop character in the students of secondary schools.",
+    "type": "academic",
+    "sources": [
+      {
+        "name": "National Honor Society Official Website",
+        "hyperlink": "https://www.nhs.us/"
+      }
+    ]
+  },
+  "nocturnes": {
+    "text": "A series of musical compositions inspired by the night, often characterized by a dreamy and introspective mood.",
+    "type": "personal",
+    "sources": [
+      {
+        "name": "Wikipedia - Nocturne",
+        "hyperlink": "https://en.wikipedia.org/wiki/Nocturne"
+      }
+    ]
+  },
+  "open-source": {
+    "text": "Software whose source code is publicly available and can be freely used, modified, and distributed.",
+    "type": "generic",
+    "sources": [
+      {
+        "name": "Open Source Initiative",
+        "hyperlink": "https://opensource.org"
+      }
+    ]
+  },
+  "Open Source Initiative": {
+    "text": "A non-profit organization dedicated to promoting and protecting open source software, development, and communities. It maintains the Open Source Definition and approves open source licenses.",
+    "type": "academic",
+    "sources": [
+      {
+        "name": "Open Source Initiative Official",
+        "hyperlink": "https://opensource.org/"
+      }
+    ]
+  },
+  "pinchaser": {
+    "text": "A person who performs maintenance and repairs on bowling alley pinsetters, clearing jams and resetting machines.",
+    "type": "professional"
+  },
+  "portmanteau": {
+    "text": "A linguistic blend of words in which parts of multiple words are combined into a new word.",
+    "type": "generic",
+    "sources": [
+      {
+        "name": "Merriam-Webster",
+        "hyperlink": "https://www.merriam-webster.com/dictionary/portmanteau"
+      }
+    ]
+  },
+  "public domain": {
+    "text": "Works that are not protected by intellectual property rights and are available for anyone to use freely.",
+    "type": "generic",
+    "sources": [
+      {
+        "name": "U.S. Copyright Office",
+        "hyperlink": "https://www.copyright.gov/help/faq-definitions.html"
+      }
+    ]
+  },
+  "robots.txt": {
+    "text": "A text file placed in a website's root directory that provides instructions to web crawlers and bots about which parts of the site should not be accessed or indexed. Compliance with robots.txt is voluntary and not legally enforceable.",
+    "type": "academic",
+    "sources": [
+      {
+        "name": "Google - Introduction to robots.txt",
+        "hyperlink": "https://developers.google.com/search/docs/crawling-indexing/robots/intro"
+      }
+    ]
+  },
+  "technology law": {
+    "text": "A broad branch of law dealing with the legal aspects of technology, the internet, intellectual property, and digital innovations.",
+    "type": "professional",
+    "sources": [
+      {
+        "name": "American Bar Association - Science & Technology Law",
+        "hyperlink": "https://www.americanbar.org/groups/science_technology/"
+      }
+    ]
+  },
+  "Tri-M Music Honors Society": {
+    "text": "A program of the National Association for Music Education (NAfME) for middle and high school students that recognizes academic achievement and honors those students who demonstrate musical achievement, leadership, character, and service.",
+    "type": "academic",
+    "sources": [
+      {
+        "name": "NAfME - Tri-M Music Honor Society",
+        "hyperlink": "https://nafme.org/student-opportunities/tri-m-music-honor-society/"
+      }
+    ]
+  },
+  "Web-scrapers": {
+    "text": "Automated tools or bots that systematically browse websites to extract data, often used for data mining, content aggregation, or building training datasets for machine learning.",
+    "type": "academic",
+    "sources": [
+      {
+        "name": "Wikipedia - Web scraping",
+        "hyperlink": "https://en.wikipedia.org/wiki/Web_scraping"
+      }
+    ]
+  },
+  "Wikipedia": {
+    "text": "A free, multilingual online encyclopedia created and maintained by a community of volunteers through open collaboration. It operates under a free content model with content licensed under Creative Commons.",
+    "type": "personal",
+    "sources": [
+      {
+        "name": "Wikipedia - About",
+        "hyperlink": "https://en.wikipedia.org/wiki/Wikipedia:About"
+      }
+    ]
+  }
+}
