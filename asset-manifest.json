@@ -1,8 +1,9 @@
 {
   "files": {
-    "main.css": "/static/css/main.4188ac67.css",
-    "main.js": "/static/js/main.de277ba7.js",
+    "main.css": "/static/css/main.8e549c1c.css",
+    "main.js": "/static/js/main.f3e6ddf8.js",
     "static/media/op_55_no_1_matthew_hoffman.wav": "/static/media/op_55_no_1_matthew_hoffman.13bc6f2300d83385729b.wav",
+    "static/media/prelude_in_c_matthew_hoffman.wav": "/static/media/prelude_in_c_matthew_hoffman.65bf2e645ecb1155f8f9.wav",
     "static/media/Classicals.de - Chopin - Nocturne Op. 48 no. 2 F-sharp minor.mp3": "/static/media/Classicals.de - Chopin - Nocturne Op. 48 no. 2 F-sharp minor.3aadad87559381be2431.mp3",
     "static/media/Classicals.de - Chopin - Nocturne Op. 37 no. 1 in G minor.mp3": "/static/media/Classicals.de - Chopin - Nocturne Op. 37 no. 1 in G minor.4c779dfa1c03162a6fa1.mp3",
     "static/media/Classicals.de - Chopin - Nocturne Op. 9 no. 3 in B major.mp3": "/static/media/Classicals.de - Chopin - Nocturne Op. 9 no. 3 in B major.ff91f7b1c14c0001fd31.mp3",
@@ -62,11 +63,11 @@
     "static/media/20.md": "/static/media/20.a80f4ad5491b55c69a37.md",
     "static/media/22.md": "/static/media/22.e098881bd605d8736b87.md",
     "static/media/12.md": "/static/media/12.57ce5e38783be37366c7.md",
-    "main.4188ac67.css.map": "/static/css/main.4188ac67.css.map",
-    "main.de277ba7.js.map": "/static/js/main.de277ba7.js.map"
+    "main.8e549c1c.css.map": "/static/css/main.8e549c1c.css.map",
+    "main.f3e6ddf8.js.map": "/static/js/main.f3e6ddf8.js.map"
   },
   "entrypoints": [
-    "static/css/main.4188ac67.css",
-    "static/js/main.de277ba7.js"
+    "static/css/main.8e549c1c.css",
+    "static/js/main.f3e6ddf8.js"
   ]
 }
