@@ -1,50 +1,31 @@
-import ReactMarkdown from "react-markdown";
-import {Accordion, AccordionDetails, AccordionSummary, Box, Container, Typography} from "@mui/material";
+import {Accordion, AccordionDetails, AccordionSummary, Container, Typography} from "@mui/material";
 import MarkdownWithTooltips from "../MarkdownWithTooltips";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import React from "react";
 
-export default function AboutThisWebsitePage() {
+export default function FAQPage() {
     return (
-        <Container maxWidth={"md"}>
-            <h2 align={"left"}>About This Website</h2>
-            <MarkdownWithTooltips align={"justify"}>
-                {'This website is designed to include only highly-permissible software licensing and works included ' +
-                    'in the public domain or acquired via [[Creative Commons]]. This is part of an intentional effort ' +
-                    'to create a domain that is indefinitely accessible, reproducible, and modifiable by anyone who ' +
-                    'wishes to do so. As such, this website is open-source and includes the MIT License.'}
-            </MarkdownWithTooltips>
-            <Accordion disableGutters>
-                <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-                    <Typography fontStyle="italic">Why make this website? (Short version)</Typography>
-                </AccordionSummary>
-                <AccordionDetails>
-                    <MarkdownWithTooltips align={"justify"}>
-                        {'I created this website for two main reasons:\n\n' +
-                        '1. To create an online portfolio to showcase my interests and skills.\n\n' +
-                            '2. To educate others and myselves on the importance of using free-use and open-source ' +
-                            'materials in web development and digital content creation.'}
-                    </MarkdownWithTooltips>
-                </AccordionDetails>
-            </Accordion>
-            <Accordion disableGutters>
-                <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-                    <Typography fontStyle="italic">Why make this website? (Long version)</Typography>
-                </AccordionSummary>
-                <AccordionDetails>
-                    <MarkdownWithTooltips align={"justify"}>
-                        {'The source of each definition is viewable from the dictionary page, which can be accessed ' +
-                            'by clicking the any highlighted words.'}
-                    </MarkdownWithTooltips>
-                </AccordionDetails>
-            </Accordion>
+        <Container maxWidth={"md"} sx={{'mt': 4, 'display': 'flex', 'flexDirection': 'column'}}>
             <h2 align={"left"}>Website Features</h2>
             <h3 align={"left"}>Highlighted Text</h3>
             <MarkdownWithTooltips align={"justify"}>
                 {'The [[highlights]] you see throughout the website are interactive. Hovering over any highlighted ' +
-                    'word will display a tooltip containing its definition.'}
+                    'word will display a tooltip containing its definition. You can view all the definitions of all words ' +
+                    'by visiting the dictionary page [here](/dictionary).'}
             </MarkdownWithTooltips>
-            <Box sx={{ mb: 1 }} />
+            <Accordion disableGutters>
+                <AccordionSummary expandIcon={<ExpandMoreIcon />}>
+                    <Typography fontStyle="italic">Why provide highlights and definitions within tooltips?</Typography>
+                </AccordionSummary>
+                <AccordionDetails>
+                    <MarkdownWithTooltips align={"justify"}>
+                        {'The intended audience for this website is technology and legal professionals, each of which ' +
+                            'may find certain topics from the other side. An online textbook-like experience seemed ' +
+                            'like the best method for allowing any user from either background to become part ' +
+                            'of the conversation without needing to leave the page to look up unfamiliar terms.'}
+                    </MarkdownWithTooltips>
+                </AccordionDetails>
+            </Accordion>
             <Accordion disableGutters>
                 <AccordionSummary expandIcon={<ExpandMoreIcon />}>
                     <Typography fontStyle="italic">Where do you get the definitions for the highlighted words?</Typography>
@@ -52,7 +33,7 @@ export default function AboutThisWebsitePage() {
                 <AccordionDetails>
                     <MarkdownWithTooltips align={"justify"}>
                         {'The source of each definition is viewable from the dictionary page, which can be accessed ' +
-                            'by clicking the any highlighted words.'}
+                            'by clicking the info icon inside the definition tooltips.'}
                     </MarkdownWithTooltips>
                 </AccordionDetails>
             </Accordion>
@@ -76,7 +57,6 @@ export default function AboutThisWebsitePage() {
                     'Commons. This music is either created and licensed by myself or by other artists who have ' +
                     'granted permission for free use of their works.'}
             </MarkdownWithTooltips>
-            <Box sx={{ mb: 1 }} />
             <Accordion disableGutters>
                 <AccordionSummary expandIcon={<ExpandMoreIcon />}>
                     <Typography fontStyle="italic">What music have you created?</Typography>
@@ -101,6 +81,19 @@ export default function AboutThisWebsitePage() {
                             "For example, my recordings of Chopin's Nocturnes are licensed under Creative Commons " +
                             "because, while the compositions themselves are in the public domain, my specific " +
                             "recordings are protected by copyright."}
+                    </MarkdownWithTooltips>
+                </AccordionDetails>
+            </Accordion>
+            <Accordion disableGutters>
+                <AccordionSummary expandIcon={<ExpandMoreIcon />}>
+                    <Typography fontStyle="italic">Why would you want a license for content you don't want to monetize?</Typography>
+                </AccordionSummary>
+                <AccordionDetails>
+                    <MarkdownWithTooltips align={"justify"}>
+                        {"Monetization isn't the only reason to use licensing. By applying a Creative Commons license " +
+                        "to music or art, you can ensure that others can freely use, share, and even build upon your " +
+                        "work, while still receiving proper attribution. This helps promote a culture of sharing " +
+                        "and collaboration, which is especially important in creative communities."}
                     </MarkdownWithTooltips>
                 </AccordionDetails>
             </Accordion>

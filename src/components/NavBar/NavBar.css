@@ -1,17 +1,25 @@
 .navbar-title {
     font-family: 'Times New Roman';
+    font-size: 2em;
     margin: 0;
     cursor: pointer;
     position: relative;
     display: inline-block;
     padding: 0 4px;
-    background: linear-gradient(to right, #1565c0 0%, #1565c0 50%, #333 50%, #333 100%);
+    background: linear-gradient(to right, #2e7d32 0%, #2e7d32 50%, #333 50%, #333 100%);
     background-size: 200% 100%;
     background-position: 100% 0;
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     transition: background-position 0.5s ease-out;
+}
+
+/* Desktop: larger title */
+@media (min-width: 900px) {
+    .navbar-title {
+        font-size: 4em;
+    }
 }
 
 .navbar-title::before {
@@ -21,7 +29,7 @@
     left: 0;
     width: 0;
     height: 100%;
-    background-color: #bbdefb;
+    background-color: #e8f5e8;
     transition: width 0.5s ease-out;
     z-index: -1;
 }
@@ -34,4 +42,37 @@
     width: 100%;
 }
 
+.navbar-title.dark-mode {
+    background: linear-gradient(to right, #90caf9 0%, #90caf9 50%, #e0e0e0 50%, #e0e0e0 100%);
+    background-size: 200% 100%;
+    background-position: 100% 0;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.navbar-title.dark-mode::before {
+    background-color: #1e88e5;
+}
+
+.navbar-title.dark-mode:hover {
+    background-position: 0 0;
+}
+
+.navbar-title.dark-mode:hover::before {
+    width: 100%;
+}
+
+.blinking {
+    animation: blink 1.5s ease-in-out infinite;
+}
+
+@keyframes blink {
+    0%, 49%, 100% {
+        opacity: 1;
+    }
+    50%, 99% {
+        opacity: 0;
+    }
+}
 

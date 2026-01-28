@@ -1,184 +1,313 @@
-import React from "react";
-import {Box, Container, IconButton, Paper, Tooltip} from "@mui/material";
+import React, { useState } from "react";
+import {Box, Button, Tooltip, Drawer, List, ListItem, ListItemIcon, ListItemText, IconButton, useTheme, useMediaQuery, Divider} from "@mui/material";
 import HighlightIcon from "@mui/icons-material/Highlight";
 import HighlightOffIcon from "@mui/icons-material/HighlightOff";
-import {useHighlight} from "../contexts/HighlightContext";
+import {useHighlight} from "../contexts/ThemeContext";
+import {useThemeMode} from "../contexts/ThemeContext";
 import GitHubIcon from '@mui/icons-material/GitHub';
 import ExternalLinkModal from "../ExternalLinkModal";
 import MusicNoteIcon from '@mui/icons-material/MusicNote';
-import MusicPlayer from "../MusicPlayer";
 import PersonIcon from '@mui/icons-material/Person';
 import ArticleIcon from '@mui/icons-material/Article';
 import RadioIcon from '@mui/icons-material/Radio';
 import ForumIcon from '@mui/icons-material/Forum';
 import HomeIcon from '@mui/icons-material/Home';
 import AbcIcon from '@mui/icons-material/Abc';
+import LightModeIcon from '@mui/icons-material/LightMode';
+import DarkModeIcon from '@mui/icons-material/DarkMode';
+import MenuIcon from '@mui/icons-material/Menu';
 import {useNavigate} from "react-router";
 import './NavBar.css';
 import MarkdownWithTooltips from "../MarkdownWithTooltips";
+import StyledTooltip from "../StyledTooltip";
 
-const playlists = [
-    {
-        id: 'chopin',
-        name: 'Set Chopin Free',
-        description: 'A set of my personal favorite Chopin pieces, recorded as part of Musopen\'s "Set Chopin Free" Kickstarter Project.',
-        tracks: [
-            {
-                title: "Nocturne Op. 55 No. 1 in F minor",
-                artist: "Frederic Chopin",
-                src: "https://www.classicals.de/s/Classicalsde-Chopin-Nocturne-in-F-minor-Op-55-No-1.mp3",
-                license: {
-                    type: "Non-Commercial License",
-                    url: "https://www.classicals.de/chopin-collection"
-                }
-            },
-            {
-                title: "Nocturne Op. 9 No. 1 in B-flat minor",
-                artist: "Frederic Chopin",
-                src: "https://www.quantumdigitalmedia.de/Classicals-Music/Chopin%20-%20Collection/Classicals.de%20-%20Chopin%20-%20Nocturne%20Op.%209%20no.%201%20in%20B-flat%20minor.mp3",
-                license: {
-                    type: "Non-Commercial License",
-                    url: "https://www.classicals.de/chopin-collection"
-                }
-            },
-        ]
-    },
-];
 
-export default function NavBar() {
+
+export default function NavBar({ setShowMusicPlayer, showMusicPlayer, isMinimized, isPlaying, topRef }) {
     const { highlightEnabled, toggleHighlight } = useHighlight();
-    const [showMusicPlayer, setShowMusicPlayer] = React.useState(false);
+    const { isDarkMode, toggleTheme } = useThemeMode();
     const navigate = useNavigate();
+    const theme = useTheme();
+    const isMobile = useMediaQuery(theme.breakpoints.down('md'));
+    const [drawerOpen, setDrawerOpen] = useState(false);
 
-    return <Box display="flex" sx={{ padding: -5, marginBottom: -5 }}>
-        <Box display="flex" alignItems="center" justifyContent="space-between" marginBottom={2}>
-            <Paper display="flex" alignItems="center" gap={1} sx={{ flex: '1 1 0', padding: 1, justifyContent: 'flex-start' }}>
-                <Tooltip title="Home">
-                    <IconButton
-                        onClick={() => navigate('/')}
-                        bgColor="black"
-                        aria-label="home"
+    const handleDrawerToggle = () => {
+        setDrawerOpen(!drawerOpen);
+    };
+
+    const handleNavigation = (path) => {
+        navigate(path);
+        setDrawerOpen(false);
+    };
+
+    const getMusicPlayerButtonColor = () => {
+        if (!showMusicPlayer) return 'red';
+        if (isMinimized) return '#ffa500';
+        return 'green';
+    };
+
+    const getMusicPlayerTooltip = () => {
+        if (!showMusicPlayer) return "Show music player";
+        if (isMinimized) return "Restore music player";
+        return "Close music player";
+    };
+
+    const navButtonsConfig = [
+        {
+            id: 'home',
+            title: 'Home',
+            path: '/',
+            icon: HomeIcon,
+            ariaLabel: 'home'
+        },
+        {
+            id: 'about-me',
+            title: 'About Me',
+            path: '/about_me',
+            icon: PersonIcon,
+            ariaLabel: 'about'
+        },
+        {
+            id: 'radio',
+            title: 'Radio',
+            path: '/radio',
+            icon: RadioIcon,
+            ariaLabel: 'radio'
+        },
+        {
+            id: 'dictionary',
+            title: 'Dictionary',
+            path: '/dictionary',
+            icon: AbcIcon,
+            ariaLabel: 'dictionary'
+        },
+        {
+            id: 'resume',
+            title: 'Resume',
+            path: '/pdf/resume',
+            icon: ArticleIcon,
+            ariaLabel: 'articles'
+        },
+        {
+            id: 'github',
+            title: 'GitHub',
+            icon: GitHubIcon,
+            ariaLabel: 'github',
+            external: true,
+            href: 'https://github.com/matthew-hoffmain'
+        }
+    ];
+
+    const navButtons = <>
+        {navButtonsConfig.map((navItem) => {
+            const IconComponent = navItem.icon;
+
+            if (navItem.external) {
+                return (
+                    <ExternalLinkModal
+                        key={navItem.id}
+                        href={navItem.href}
+                        title={navItem.modalTitle}
+                        message={navItem.modalMessage}
                     >
-                        <HomeIcon/>
-                    </IconButton>
-                </Tooltip>
-                <Tooltip title="About Me">
-                    <IconButton
-                        onClick={() => navigate('/about_me')}
-                        color="black"
-                        aria-label="about"
+                        <Tooltip title={navItem.title}>
+                            <Button
+                                variant='contained'
+                                aria-label={navItem.ariaLabel}
+                                sx={{ minWidth: 'auto', px: 1 }}
+                            >
+                                <IconComponent />
+                            </Button>
+                        </Tooltip>
+                    </ExternalLinkModal>
+                );
+            }
+
+            return (
+                <Tooltip key={navItem.id} title={navItem.title}>
+                    <Button
+                        variant='contained'
+                        onClick={() => navigate(navItem.path)}
+                        aria-label={navItem.ariaLabel}
+                        sx={{ minWidth: 'auto', px: 1 }}
                     >
-                        <PersonIcon/>
-                    </IconButton>
+                        <IconComponent />
+                    </Button>
                 </Tooltip>
-                <Tooltip title="About This Website">
-                    <IconButton
-                        variant="outlined"
-                        onClick={() => navigate('/about_this_website')}
-                        color="black"
-                        aria-label="about"
-                    >
-                        <ForumIcon/>
-                    </IconButton>
-                </Tooltip>
-                <Tooltip title="Articles">
-                    <IconButton
-                        onClick={() => navigate('/articles')}
-                        color="black"
-                        aria-label="about"
-                    >
-                        <ArticleIcon/>
-                    </IconButton>
-                </Tooltip>
-                <Tooltip title="Radio">
-                    <IconButton
-                        onClick={() => navigate('/radio')}
-                        color="black"
-                        aria-label="sandbox"
-                    >
-                        <RadioIcon/>
-                    </IconButton>
-                </Tooltip>
-                <Tooltip title="Dictionary">
-                    <IconButton
-                        onClick={() => navigate('/dictionary')}
-                        color="black"
-                        aria-label="dictionary"
-                    >
-                        <AbcIcon/>
-                    </IconButton>
-                </Tooltip>
-                <ExternalLinkModal
-                    href="https://github.com/matthew-hoffmain/domain"
-                    title="GitHub Repository"
-                    message="This will open the GitHub repository for this website in a new tab."
-                >
-                    <Tooltip title="View source code on GitHub">
+            );
+        })}
+    </>
+
+    return (
+        <>
+            <Box sx={{
+                position: 'relative',
+                display: 'flex',
+                alignItems: 'center',
+                padding: { xs: 2, md: 5 },
+                mt: { xs: 1, md: 3 },
+                mb: { xs: -2, md: -4 },
+                width: '100%',
+                minHeight: { xs: '60px', md: '80px' }
+            }}>
+
+                {/* Mobile: Hamburger menu button on left */}
+                {isMobile && (
+                    <Box sx={{ position: 'absolute', left: 16 }}>
                         <IconButton
-                            color="black"
-                            aria-label="github"
+                            onClick={handleDrawerToggle}
+                            sx={{
+                                bgcolor: 'primary.main',
+                                color: 'white',
+                                '&:hover': {
+                                    bgcolor: 'primary.dark',
+                                },
+                                minWidth: 44,
+                                minHeight: 44
+                            }}
+                            aria-label="menu"
                         >
-                            <GitHubIcon />
+                            <MenuIcon />
                         </IconButton>
-                    </Tooltip>
-                </ExternalLinkModal>
-            </Paper>
+                    </Box>
+                )}
 
-            <Tooltip
-                title={<Box sx={{ maxWidth: 600, whiteSpace: 'normal' }}>
-                    <MarkdownWithTooltips>{'The personal website of Matthew Hoffman. "Hoffmain" is a [[portmanteau]] of the last name "Hoffman" and the word "main", which in software marks the entry point for a program\'s execution. The website functions similarly as an entryway.'}</MarkdownWithTooltips>
-                </Box>}
-                placement="bottom"
-                arrow
-                slotProps={{
-                    tooltip: {
-                        sx: {
-                            bgcolor: '#333',
-                            color: 'white',
-                            fontSize: '0.875rem',
-                            maxWidth: 600,
-                            whiteSpace: 'pre-wrap',
-                            wordBreak: 'break-word',
-                            '& .MuiTooltip-arrow': {
-                                color: '#333',
-                            },
-                        },
-                    },
+                {!isMobile && (
+                    <Box sx={{
+                        position: 'absolute',
+                        left: 30,
+                        marginBottom: 0
+                    }}>
+                        <Box sx={{ padding: 1, display: 'flex', alignItems: 'center', gap: 0.5, flexWrap: 'nowrap' }}>
+                            {navButtons}
+                        </Box>
+                    </Box>
+                )}
+
+                <Box sx={{
+                    position: 'absolute',
+                    left: '50%',
+                    transform: 'translateX(-50%)',
+                    marginBottom: 0
+                }}>
+                    <Box sx={{ display: 'flex', justifyContent: 'center' }}>
+                        <h1
+                            className={`navbar-title ${isDarkMode ? 'dark-mode' : ''}`}
+                            onClick={() => navigate('/')}
+                        >
+                            HOFFMA<span className="blinking">I</span>N
+                        </h1>
+                    </Box>
+                </Box>
+
+                <Box sx={{
+                    position: 'absolute',
+                    right: { xs: 16, md: 30 },
+                    marginBottom: { xs: 0, md: 2 }
+                }}>
+                    <Box sx={{ padding: 1, display: 'flex', alignItems: 'center', gap: 0.5, flexWrap: 'nowrap' }}>
+                        <StyledTooltip
+                            title={
+                                <Box
+                                    onClick={(e) => {
+                                        e.stopPropagation();
+                                        navigate('/dictionary#term-highlights');
+                                    }}
+                                    sx={{
+                                        cursor: 'pointer',
+                                        '&:hover': { opacity: 0.8 }
+                                    }}
+                                >
+                                    {highlightEnabled ? "Disable highlights" : "Enable highlights"}
+                                </Box>
+                            }
+                        >
+                            <Button
+                                variant='contained'
+                                onClick={toggleHighlight}
+                                sx={{
+                                    bgcolor: highlightEnabled ? 'green' : 'red',
+                                    color: 'white',
+                                    minWidth: 'auto',
+                                    px: 1
+                                }}
+                                aria-label="toggle highlights"
+                            >
+                                {highlightEnabled ? <HighlightIcon /> : <HighlightOffIcon />}
+                            </Button>
+                        </StyledTooltip>
+                        <Tooltip title={getMusicPlayerTooltip()}>
+                            <Button
+                                variant='contained'
+                                onClick={() => setShowMusicPlayer()}
+                                sx={{
+                                    bgcolor: getMusicPlayerButtonColor(),
+                                    color: 'white',
+                                    minWidth: 'auto',
+                                    px: 1
+                                }}
+                                aria-label="toggle music player"
+                            >
+                                <MusicNoteIcon />
+                            </Button>
+                        </Tooltip>
+                    </Box>
+                </Box>
+            </Box>
+
+            <Drawer
+                anchor="left"
+                open={drawerOpen}
+                onClose={handleDrawerToggle}
+                sx={{
+                    '& .MuiDrawer-paper': {
+                        width: 280,
+                        pt: 2
+                    }
                 }}
             >
-                <Paper sx={{ flex: '1 1 0', padding: 1, display: 'flex', justifyContent: 'center' }}>
-                    <h1 className="navbar-title" onClick={() => navigate('/')}>
-                        HOFFMAiN
-                    </h1>
-                </Paper>
-            </Tooltip>
+                <List>
+                    {navButtonsConfig.map((navItem) => {
+                        const IconComponent = navItem.icon;
 
-            <Paper display="flex" alignItems="center" gap={1} sx={{ flex: '1 1 0', padding: 1, justifyContent: 'flex-end' }}>
-                <Tooltip title={highlightEnabled ? "Disable highlights" : "Enable highlights"}>
-                    <IconButton
-                        onClick={toggleHighlight}
-                        sx={{ color: highlightEnabled ? 'green' : 'red' }}
-                        aria-label="toggle highlights"
-                    >
-                        {highlightEnabled ? <HighlightIcon /> : <HighlightOffIcon />}
-                    </IconButton>
-                </Tooltip>
-                <Tooltip title={showMusicPlayer ? "Hide music player" : "Show music player"}>
-                    <IconButton
-                        onClick={() => setShowMusicPlayer(!showMusicPlayer)}
-                        sx={{ color: showMusicPlayer ? 'green' : 'red' }}
-                        aria-label="toggle music player"
-                    >
-                        <MusicNoteIcon />
-                    </IconButton>
-                </Tooltip>
-            </Paper>
-        </Box>
+                        if (navItem.external) {
+                            return (
+                                <ExternalLinkModal
+                                    key={navItem.id}
+                                    href={navItem.href}
+                                    title={navItem.modalTitle}
+                                    message={navItem.modalMessage}
+                                >
+                                    <ListItem
+                                        button
+                                        onClick={() => setDrawerOpen(false)}
+                                        sx={{ minHeight: 48 }}
+                                    >
+                                        <ListItemIcon sx={{ minWidth: 44 }}>
+                                            <IconComponent />
+                                        </ListItemIcon>
+                                        <ListItemText primary={navItem.title} />
+                                    </ListItem>
+                                </ExternalLinkModal>
+                            );
+                        }
 
-        {showMusicPlayer && (
-            <Container maxWidth="md" sx={{ mt: 2, display: 'flex', justifyContent: 'center' }}>
-                <MusicPlayer playlists={playlists} />
-            </Container>
-        )}
-    </Box>
+                        return (
+                            <ListItem
+                                button
+                                key={navItem.id}
+                                onClick={() => handleNavigation(navItem.path)}
+                                sx={{ minHeight: 48 }}
+                            >
+                                <ListItemIcon sx={{ minWidth: 44 }}>
+                                    <IconComponent />
+                                </ListItemIcon>
+                                <ListItemText primary={navItem.title} />
+                            </ListItem>
+                        );
+                    })}
+                </List>
+            </Drawer>
+        </>
+    );
 }

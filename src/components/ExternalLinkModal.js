@@ -9,17 +9,27 @@ import {
     Backdrop
 } from '@mui/material';
 import { Close as CloseIcon, OpenInNew as OpenInNewIcon } from '@mui/icons-material';
+import { useThemeMode } from './contexts/ThemeContext';
 
 const ExternalLinkModal = ({
                                children,
                                href,
                                title = "External Link",
                                message = "You are about to leave this site and go to an external website.",
+                               onClick,
                                ...props
                            }) => {
     const [open, setOpen] = useState(false);
+    const { isDarkMode } = useThemeMode();
 
-    const handleOpen = () => setOpen(true);
+    const linkColor = isDarkMode ? '#90caf9' : '#1976d2';
+
+    const handleOpen = () => {
+        if (onClick) {
+            onClick();
+        }
+        setOpen(true);
+    };
     const handleClose = () => setOpen(false);
 
     const handleContinue = () => {
@@ -100,7 +110,7 @@ const ExternalLinkModal = ({
                         </Typography>
 
                         <Typography sx={{ mb: 3, color: '#999999', fontSize: '0.9rem' }}>
-                            Destination: <strong style={{ color: '#ffffff' }}>{href}</strong>
+                            Destination: <strong style={{ color: linkColor }}>{href}</strong>
                         </Typography>
 
                         <Box sx={{ display: 'flex', gap: 2, justifyContent: 'flex-end' }}>

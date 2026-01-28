@@ -1,52 +1,107 @@
 import React from 'react';
 import ReactMarkdown from 'react-markdown';
-import { Tooltip, Typography, Box } from '@mui/material';
-import { styled } from '@mui/material/styles';
-import { useHighlight } from './contexts/HighlightContext';
+import { Tooltip, Typography, Box, IconButton, Divider } from '@mui/material';
+import { useNavigate } from 'react-router';
+import { useHighlight, useThemeMode } from './contexts/ThemeContext';
 import ExternalLinkModal from './ExternalLinkModal';
-import definitions from '../definitions.json';
+import StyledTooltip from './StyledTooltip';
+import definitions from '../static/json/definitions.json';
+import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
 
-// Create a case-insensitive lookup map
 const definitionsLowerCaseMap = Object.keys(definitions).reduce((acc, key) => {
     acc[key.toLowerCase()] = key;
     return acc;
 }, {});
 
-const HighlightedText = styled('span')(({ variant = 'generic' }) => ({
-    backgroundColor:
-        variant === 'professional' ? '#e3f2fd' :
-            variant === 'academic' ? '#ffebee' :
-                variant === 'personal' ? '#e8f5e8' :
-                    '#fff3cd',
-    color:
-        variant === 'professional' ? '#1565c0' :
-            variant === 'academic' ? '#c62828' :
-                variant === 'personal' ? '#2e7d32' :
-                    '#856404',
-    padding: '2px 0px',
-    borderRadius: '3px',
-    cursor: 'help',
-    borderBottom: `1px dotted ${
-        variant === 'professional' ? '#1565c0' :
-            variant === 'academic' ? '#c62828' :
-                variant === 'personal' ? '#2e7d32' :
-                    '#856404'
-    }`,
-    '&:hover': {
-        backgroundColor:
-            variant === 'professional' ? '#bbdefb' :
-                variant === 'academic' ? '#ffcdd2' :
+const HighlightedText = React.forwardRef(({ variant = 'generic', children, ...props }, ref) => {
+    const { isDarkMode } = useThemeMode();
+
+    const getColors = () => {
+        if (isDarkMode) {
+            // Darker colors for dark mode
+            return {
+                backgroundColor:
+                    variant === 'professional' ? '#0d47a1' :
+                    variant === 'academic' ? '#b71c1c' :
+                    variant === 'personal' ? '#1b5e20' :
+                        '#f9a825',
+                color: '#ffffff',
+                borderBottom:
+                    variant === 'professional' ? '1px dotted #1565c0' :
+                    variant === 'academic' ? '1px dotted #c62828' :
+                    variant === 'personal' ? '1px dotted #2e7d32' :
+                        '1px dotted #fbc02d',
+                hoverBackgroundColor:
+                    variant === 'professional' ? '#1565c0' :
+                    variant === 'academic' ? '#c62828' :
+                    variant === 'personal' ? '#2e7d32' :
+                        '#fdd835',
+            };
+        } else {
+            return {
+                backgroundColor:
+                    variant === 'professional' ? '#e3f2fd' :
+                    variant === 'academic' ? '#ffebee' :
+                    variant === 'personal' ? '#e8f5e8' :
+                        '#fff3cd',
+                color:
+                    variant === 'professional' ? '#1565c0' :
+                    variant === 'academic' ? '#c62828' :
+                    variant === 'personal' ? '#2e7d32' :
+                        '#856404',
+                borderBottom:
+                    variant === 'professional' ? '1px dotted #1565c0' :
+                    variant === 'academic' ? '1px dotted #c62828' :
+                    variant === 'personal' ? '1px dotted #2e7d32' :
+                        '1px dotted #856404',
+                hoverBackgroundColor:
+                    variant === 'professional' ? '#bbdefb' :
+                    variant === 'academic' ? '#ffcdd2' :
                     variant === 'personal' ? '#c8e6c9' :
                         '#ffeaa7',
-    },
-}));
+            };
+        }
+    };
+
+    const colors = getColors();
+
+    return (
+        <Box
+            ref={ref}
+            component="span"
+            {...props}
+            sx={{
+                backgroundColor: colors.backgroundColor,
+                color: colors.color,
+                padding: '2px 0px',
+                borderRadius: '3px',
+                cursor: 'help',
+                borderBottom: colors.borderBottom,
+                '&:hover': {
+                    backgroundColor: colors.hoverBackgroundColor,
+                },
+            }}
+        >
+            {children}
+        </Box>
+    );
+});
 
 
 let processTextWithTooltips;
 
-const TooltipContent = ({ content }) => {
+const TooltipContent = ({ content, term }) => {
+    const navigate = useNavigate();
     const imageMatch = content.match(/^(IMG|GIF):(.+)$/);
     const textAndImageMatch = content.match(/^(.+?)\s*\|\s*(IMG|GIF):(.+)$/);
+
+    const handleIconClick = (e) => {
+        e.stopPropagation();
+        if (term) {
+            const termId = term.toLowerCase().replace(/\s+/g, '-');
+            navigate(`/dictionary#term-${termId}`);
+        }
+    };
 
     if (imageMatch) {
         const [, type, url] = imageMatch;
@@ -70,8 +125,22 @@ const TooltipContent = ({ content }) => {
                 <Typography sx={{
                     mb: 1,
                     fontSize: '0.875rem',
-                    color: 'inherit'
+                    color: 'inherit',
+                    margin: 0,
+                    textAlign: 'left'
                 }}>
+                    <HelpOutlineIcon
+                        onClick={handleIconClick}
+                        sx={{
+                            fontSize: '1rem',
+                            verticalAlign: 'text-top',
+                            mr: 0.5,
+                            cursor: term ? 'pointer' : 'default',
+                            '&:hover': term ? {
+                                opacity: 0.7
+                            } : {}
+                        }}
+                    />
                     {processTextWithTooltips(text.trim(), true)}
                 </Typography>
                 <img
@@ -89,8 +158,22 @@ const TooltipContent = ({ content }) => {
         return (
             <Typography sx={{
                 fontSize: '0.875rem',
-                maxWidth: '300px'
+                maxWidth: '300px',
+                margin: 0
             }}>
+                <HelpOutlineIcon
+                    onClick={handleIconClick}
+                    sx={{
+                        fontSize: '1rem',
+                        verticalAlign: 'text-top',
+                        mr: 0.5,
+                        mt: 0.2,
+                        cursor: term ? 'pointer' : 'default',
+                        '&:hover': term ? {
+                            opacity: 0.7
+                        } : {}
+                    }}
+                />
                 {processTextWithTooltips(content, true)}
             </Typography>
         );
@@ -125,7 +208,6 @@ processTextWithTooltips = (text, highlightEnabled = true) => {
         const word = match[1];
         const inlineDefinition = match[2];
 
-        // Check definitions.json first (case-insensitive), then fall back to in-text definition
         const wordLowerCase = word.toLowerCase();
         const originalKey = definitionsLowerCaseMap[wordLowerCase];
         const jsonDefinition = originalKey ? definitions[originalKey] : null;
@@ -146,27 +228,14 @@ processTextWithTooltips = (text, highlightEnabled = true) => {
 
         if (finalDefinition) {
             parts.push(
-                <Tooltip
+                <StyledTooltip
                     key={match.index}
-                    title={<TooltipContent content={finalDefinition} />}
-                    placement="top"
-                    arrow
-                    slotProps={{
-                        tooltip: {
-                            sx: {
-                                bgcolor: '#333',
-                                color: 'white',
-                                fontSize: '0.875rem',
-                                maxWidth: 'none',
-                                '& .MuiTooltip-arrow': {
-                                    color: '#333',
-                                },
-                            },
-                        },
-                    }}
+                    title={<TooltipContent content={finalDefinition} term={originalKey || word} />}
+                    placement="bottom"
+                    arrow={true}
                 >
                     <HighlightedText variant={variant}>{word}</HighlightedText>
-                </Tooltip>
+                </StyledTooltip>
             );
         } else {
             parts.push(
@@ -204,7 +273,12 @@ const TextRenderer = ({ children }) => {
 };
 
 const LinkRenderer = ({ href, children, ...props }) => {
+    const navigate = useNavigate();
+    const { isDarkMode } = useThemeMode();
     const isExternal = href && (href.startsWith('http://') || href.startsWith('https://'));
+
+    const linkColor = isDarkMode ? '#90caf9' : '#1976d2';
+    const linkHoverColor = isDarkMode ? '#64b5f6' : '#1565c0';
 
     if (isExternal) {
         return (
@@ -216,11 +290,11 @@ const LinkRenderer = ({ href, children, ...props }) => {
                 <Box
                     component="span"
                     sx={{
-                        color: '#4caf50',
+                        color: linkColor,
                         textDecoration: 'underline',
                         cursor: 'pointer',
                         '&:hover': {
-                            color: '#45a049',
+                            color: linkHoverColor,
                         },
                     }}
                 >
@@ -230,9 +304,23 @@ const LinkRenderer = ({ href, children, ...props }) => {
         );
     } else {
         return (
-            <a href={href} {...props} style={{ color: '#4caf50', textDecoration: 'underline' }}>
+            <Box
+                component="span"
+                onClick={(e) => {
+                    e.preventDefault();
+                    navigate(href);
+                }}
+                sx={{
+                    color: linkColor,
+                    textDecoration: 'underline',
+                    cursor: 'pointer',
+                    '&:hover': {
+                        color: linkHoverColor,
+                    },
+                }}
+            >
                 <TextRenderer>{children}</TextRenderer>
-            </a>
+            </Box>
         );
     }
 };
@@ -257,6 +345,7 @@ export default function MarkdownWithTooltips({ children, align, variant, color, 
             components={{
                 text: ({ children }) => <TextRenderer>{children}</TextRenderer>,
                 a: ({ href, children, ...props }) => <LinkRenderer href={href} {...props}>{children}</LinkRenderer>,
+                hr: () => <Divider sx={{ my: 4 }} />,
                 p: ({ node, children, ...mdProps }) => (
                     <Typography
                         {...inheritedTypographyProps}
