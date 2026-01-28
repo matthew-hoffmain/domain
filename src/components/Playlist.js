@@ -9,7 +9,6 @@ import smithsonianImage from "../static/image/Smithsonian_Institution.jpeg";
 import watercolorImage from "../static/image/Watercolor_Portrait_of_Matthew_Hoffman.jpeg";
 import mountainPassImage from "../static/image/a_view_of_the_mountain_pass_called_the_notch_of_the_white_mountains_crawford_notch_1967.8.1.jpg";
 
-// Map image identifiers to actual imports
 const imageMap = {
     'italian_coast': italianCoastImage,
     'boston_longfellow': bostonImage,
@@ -18,12 +17,6 @@ const imageMap = {
     'A_View_of_the_Mountain_Pass.jpeg': mountainPassImage
 };
 
-/**
- * Playlist component displays a playlist with its cover image and track list
- *
- * @param {object} playlist - The playlist object containing title, description, tracks, and image info
- * @param {function} onPlayTrack - Callback when a track is played, receives (playlistTracks, trackIndex)
- */
 export default function Playlist({ playlist, onPlayTrack }) {
     const [imageInfoHovered, setImageInfoHovered] = useState(false);
 
@@ -31,7 +24,6 @@ export default function Playlist({ playlist, onPlayTrack }) {
         onPlayTrack(playlist.tracks, trackIndex);
     };
 
-    // Get the actual image source from the map
     const imageSrc = imageMap[playlist.coverImage] || bostonImage;
 
     return (
@@ -46,7 +38,6 @@ export default function Playlist({ playlist, onPlayTrack }) {
                 height={600}
                 onInfoHoverChange={setImageInfoHovered}
             >
-                {/* Overlay content with playlist info and tracks */}
                 <Box
                     sx={{
                         position: 'absolute',
@@ -60,7 +51,7 @@ export default function Playlist({ playlist, onPlayTrack }) {
                         alignItems: 'center',
                         padding: { xs: 2, md: 4 },
                         borderRadius: 3,
-                        opacity: imageInfoHovered ? 0 : 1,
+                        opacity: imageInfoHovered ? 0 : .9,
                         transition: 'opacity 0.2s',
                         pointerEvents: imageInfoHovered ? 'none' : 'auto'
                     }}

@@ -28,17 +28,17 @@ export default function Track({ track, index, onPlay }) {
                 <IconButton
                     onClick={() => onPlay(index)}
                     sx={{
-                        backgroundColor: 'primary.main',
-                        color: 'white',
+                        color: '#1a1a1a',
+                        bgcolor: 'rgba(0, 0, 0, 0.05)',
                         minWidth: 44,
                         minHeight: 44,
                         '&:hover': {
-                            backgroundColor: 'primary.dark',
+                            bgcolor: 'rgba(0, 0, 0, 0.1)'
                         }
                     }}
                     aria-label="Play track"
                 >
-                    <PlayArrowIcon sx={{ fontSize: { xs: '1.25rem', md: '1.5rem' } }} />
+                    <PlayArrowIcon sx={{ fontSize: { xs: '2rem', md: '1.5rem' } }} />
                 </IconButton>
 
                 <Box sx={{ flexGrow: 1, minWidth: 0 }}>

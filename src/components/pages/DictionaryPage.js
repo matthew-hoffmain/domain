@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Container, Box, Typography, Card, CardContent, Chip, IconButton } from '@mui/material';
+import { Container, Box, Typography, Card, CardContent, Chip, IconButton, useTheme, useMediaQuery } from '@mui/material';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import definitions from '../../static/json/definitions.json';
 import { useLocation, useNavigate } from 'react-router';
@@ -7,13 +7,18 @@ import { useThemeMode } from '../contexts/ThemeContext';
 import { motion, AnimatePresence } from 'framer-motion';
 import MarkdownWithTooltips from "../MarkdownWithTooltips";
 import ExternalLinkModal from "../ExternalLinkModal";
+import HighlightImage from "../HighlightImage";
+import smithsonianImage from "../../static/image/Smithsonian_Institution.jpeg";
 
 export default function DictionaryPage() {
     const location = useLocation();
     const navigate = useNavigate();
     const [highlightedTerm, setHighlightedTerm] = useState(null);
     const [showBackButton, setShowBackButton] = useState(false);
+    const [imageInfoHovered, setImageInfoHovered] = useState(false);
     const { isDarkMode } = useThemeMode();
+    const theme = useTheme();
+    const isMobile = useMediaQuery(theme.breakpoints.down('md'));
 
     const definitionEntries = Object.entries(definitions).sort((a, b) =>
         a[0].localeCompare(b[0], undefined, { sensitivity: 'base' })
@@ -116,7 +121,7 @@ export default function DictionaryPage() {
     };
 
     return (
-        <Container maxWidth="md">
+        <Container maxWidth="md" sx={{mt: 6}}>
             <Box sx={{ py: { xs: 2, md: 4 } }}>
                 <AnimatePresence>
                     <motion.div
@@ -124,18 +129,46 @@ export default function DictionaryPage() {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.3, ease: "easeOut" }}
                     >
+                        <HighlightImage
+                            imageSrc={smithsonianImage}
+                            imageTitle="Smithsonian Institution Building"
+                            imageCreator="Public Domain"
+                            licenseUrl="https://www.si.edu/termsofuse"
+                            licenseText="Smithsonian Terms of Use"
+                            downloadFileName="Smithsonian_Institution.jpeg"
+                            height={isMobile ? 350 : 400}
+                            onInfoHoverChange={setImageInfoHovered}
+                        >
+                            <Box sx={{
+                                position: 'absolute',
+                                top: 0,
+                                left: 0,
+                                right: 0,
+                                bottom: 0,
+                                display: 'flex',
+                                alignItems: 'center',
+                                justifyContent: 'center',
+                                px: { xs: 2, md: 4 },
+                                opacity: imageInfoHovered ? 0 : 0.9,
+                                transition: 'opacity 0.2s'
+                            }}>
+                                <Box sx={{
+                                    backgroundColor: 'background.paper',
+                                    borderRadius: 3,
+                                    p: { xs: 3, md: 4 },
+                                    maxWidth: '800px',
+                                    boxShadow: 5
+                                }}>
+                                    <MarkdownWithTooltips align={"justify"} sx={{ mb: 2 }}>
+                                        {'> The [[highlights]] on this site are interactable, and can be disabled from the navbar. Hover over one to see a tooltip containing its definition. Click the question icon to be brought to the definition here. They are color-coded and categorized according to the level of experience I have attained with them.'}
+                                    </MarkdownWithTooltips>
 
-                        <Container maxWidth="md">
-                            <MarkdownWithTooltips align={"justify"}>
-                                {'> The [[highlights]]  on this site are interactable, and can be disabled from the navbar. Hover over one to see a tooltip containing its definition. Click the question icon to be brought to the definition here. They are color-coded and categorized according to the category by which I learned them.'}
-                            </MarkdownWithTooltips>
-                        </Container>
-
-                        <Container maxWidth="sm">
-                            <MarkdownWithTooltips>
-                                {'> *"Dictionaries are like watches, the worst is better than none and the best cannot be expected to go quite true." - Samuel Johnson*'}
-                            </MarkdownWithTooltips>
-                        </Container>
+                                    <MarkdownWithTooltips align={"center"}>
+                                        {'> *"Dictionaries are like watches, the worst is better than none and the best cannot be expected to go quite true." - Samuel Johnson*'}
+                                    </MarkdownWithTooltips>
+                                </Box>
+                            </Box>
+                        </HighlightImage>
 
                         <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1.5, mt: 3 }}>
                     {definitionEntries.map(([term, definition]) => {

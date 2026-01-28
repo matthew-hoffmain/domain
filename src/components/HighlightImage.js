@@ -48,7 +48,6 @@ export default function HighlightImage({
 
     return (
         <Box sx={{ position: 'relative' }}>
-            {/* Background Image */}
             <Box
                 component="img"
                 src={imageSrc}
@@ -60,8 +59,6 @@ export default function HighlightImage({
                     boxShadow: 5,
                 }}
             />
-
-            {/* Dark Mode Overlay */}
             {isDarkMode && (
                 <Box
                     sx={{
@@ -79,7 +76,6 @@ export default function HighlightImage({
 
             {children}
 
-            {/* Hoverable Image Info Box */}
             <Box
                 onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeave}
@@ -104,7 +100,6 @@ export default function HighlightImage({
                     }
                 }}
             >
-                {/* Left column: Icons */}
                 <Box
                     sx={{
                         display: 'flex',
@@ -142,7 +137,6 @@ export default function HighlightImage({
                     )}
                 </Box>
 
-                {/* Right column: Text info */}
                 <Box
                     sx={{
                         opacity: imageInfoHovered ? 1 : 0,

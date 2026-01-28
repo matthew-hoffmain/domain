@@ -12,7 +12,16 @@
       {
         "title": "Nocturne Op. 55 No. 1",
         "artist": "Frédéric Chopin - Performed by Matthew Hoffman",
-        "src": "local-recording",
+        "src": "hoffman_op55_no1",
+        "license": {
+          "type": "Non-Commercial License",
+          "url": "https://www.classicals.de/licensing#non-commercial"
+        }
+      },
+      {
+        "title": "Prelude and Fugue in C major, BWV 846",
+        "artist": "J.S. Bach - Performed by Matthew Hoffman",
+        "src": "hoffman_prelude_in_c",
         "license": {
           "type": "Non-Commercial License",
           "url": "https://www.classicals.de/licensing#non-commercial"

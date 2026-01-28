@@ -21,7 +21,8 @@ import {
     Minimize
 } from '@mui/icons-material';
 import playlistsData from '../static/json/playlists.json';
-import localRecording from '../static/audio/op_55_no_1_matthew_hoffman.wav';
+import hoffman_op55_no1 from '../static/audio/op_55_no_1_matthew_hoffman.wav';
+import hoffman_prelude_in_c from '../static/audio/prelude_in_c_matthew_hoffman.wav';
 
 // Import all Classicals.de Chopin MP3s
 import chopin_op9_no1 from '../static/audio/Classicals.de - Chopin - Nocturne Op. 9 no. 1 in B-flat minor/Classicals.de - Chopin - Nocturne Op. 9 no. 1 in B-flat minor.mp3';
@@ -44,9 +45,9 @@ import chopin_op72 from '../static/audio/Classicals.de - Chopin - Nocturne Op. p
 import chopin_b49 from '../static/audio/Classicals.de - Chopin - Nocturne B. 49 in C-sharp minor \'Lento con gran espressione\'/Classicals.de - Chopin - Nocturne B. 49 in C-sharp minor \'Lento con gran espressione\'.mp3';
 import chopin_b108 from '../static/audio/Classicals.de - Chopin - Nocturne B. 108 in C minor/Classicals.de - Chopin - Nocturne B. 108 in C minor.mp3';
 
-// Map special identifiers to imported assets
 const audioAssetMap = {
-    'local-recording': localRecording,
+    'hoffman_op55_no1': hoffman_op55_no1,
+    'hoffman_prelude_in_c': hoffman_prelude_in_c,
     'chopin-op9-no1': chopin_op9_no1,
     'chopin-op9-no2': chopin_op9_no2,
     'chopin-op9-no3': chopin_op9_no3,
@@ -68,7 +69,7 @@ const audioAssetMap = {
     'chopin-b108': chopin_b108
 };
 
-export default function MusicPlayer ({ onClose, onMinimize, isMinimized = false, playlist: externalPlaylist, startingTrack = 0, onPlayingStateChange }) {
+export default function MusicPlayer ({ onClose, onMinimize, isMinimized = false, playlist: externalPlaylist, startingTrack = 0, onPlayingStateChange, autoplay = false }) {
     const [isPlaying, setIsPlaying] = useState(false);
     const [currentTime, setCurrentTime] = useState(0);
     const [duration, setDuration] = useState(0);
@@ -80,25 +81,31 @@ export default function MusicPlayer ({ onClose, onMinimize, isMinimized = false,
     const theme = useTheme();
     const isMobile = useMediaQuery(theme.breakpoints.down('md'));
 
-    // Use the personal-recordings playlist as the default
     const personalRecordingsPlaylist = playlistsData.find(p => p.id === 'personal-recordings');
     const defaultPlaylist = personalRecordingsPlaylist?.tracks || [];
 
     const playlist = externalPlaylist || defaultPlaylist;
     const [currentTrack, setCurrentTrack] = useState(0);
 
-    // Helper function to resolve audio src
     const getAudioSrc = (track) => {
         return audioAssetMap[track?.src] || track?.src;
     };
 
-    // Reset to starting track when playlist changes
     useEffect(() => {
         if (externalPlaylist) {
             setCurrentTrack(startingTrack);
-            setIsPlaying(false);
+            if (autoplay) {
+                setTimeout(() => {
+                    const audio = audioRef.current;
+                    if (audio) {
+                        audio.play().catch(err => console.log('Autoplay prevented:', err));
+                    }
+                }, 100);
+            } else {
+                setIsPlaying(false);
+            }
         }
-    }, [externalPlaylist, startingTrack]);
+    }, [externalPlaylist, startingTrack, autoplay]);
 
     useEffect(() => {
         const audio = audioRef.current;
@@ -151,13 +158,29 @@ export default function MusicPlayer ({ onClose, onMinimize, isMinimized = false,
     };
 
     const nextTrack = () => {
+        const wasPlaying = isPlaying;
         setCurrentTrack((prev) => (prev + 1) % playlist.length);
-        setIsPlaying(false);
+        if (wasPlaying) {
+            setTimeout(() => {
+                const audio = audioRef.current;
+                if (audio) {
+                    audio.play().catch(err => console.log('Autoplay prevented:', err));
+                }
+            }, 100);
+        }
     };
 
     const prevTrack = () => {
+        const wasPlaying = isPlaying;
         setCurrentTrack((prev) => (prev - 1 + playlist.length) % playlist.length);
-        setIsPlaying(false);
+        if (wasPlaying) {
+            setTimeout(() => {
+                const audio = audioRef.current;
+                if (audio) {
+                    audio.play().catch(err => console.log('Autoplay prevented:', err));
+                }
+            }, 100);
+        }
     };
 
     const formatTime = (time) => {
@@ -189,14 +212,12 @@ export default function MusicPlayer ({ onClose, onMinimize, isMinimized = false,
 
     return (
         <>
-            {/* Always render audio element to keep music playing */}
             <audio
                 ref={audioRef}
                 src={getAudioSrc(playlist[currentTrack])}
                 onEnded={nextTrack}
             />
 
-            {/* Only render UI when not minimized */}
             {!isMinimized && (
                 <motion.div
                     ref={playerRef}
@@ -236,7 +257,6 @@ export default function MusicPlayer ({ onClose, onMinimize, isMinimized = false,
                             position: 'relative'
                         }}
                     >
-                        {/* Close Button */}
                         <IconButton
                             onClick={onClose}
                             sx={{
@@ -255,7 +275,6 @@ export default function MusicPlayer ({ onClose, onMinimize, isMinimized = false,
                             <Close fontSize="small" />
                         </IconButton>
 
-                        {/* Minimize Button */}
                         <IconButton
                             onClick={onMinimize}
                             sx={{
@@ -274,12 +293,10 @@ export default function MusicPlayer ({ onClose, onMinimize, isMinimized = false,
                             <Minimize fontSize="small" />
                         </IconButton>
 
-                        {/* Drag Handle */}
                         <Box sx={{ display: 'flex', justifyContent: 'center', mb: 1 }}>
                             <DragIndicator sx={{ color: 'rgba(0, 0, 0, 0.3)' }} />
                         </Box>
 
-                        {/* Track Info */}
                         <Box sx={{ textAlign: 'center' }}>
                             <Typography variant="h6" noWrap>
                                 {playlist[currentTrack]?.title}
@@ -289,7 +306,6 @@ export default function MusicPlayer ({ onClose, onMinimize, isMinimized = false,
                             </Typography>
                         </Box>
 
-                        {/* Progress Bar */}
                         <Box
                             onPointerDown={(e) => e.stopPropagation()}
                             style={{ touchAction: 'none' }}
@@ -339,7 +355,6 @@ export default function MusicPlayer ({ onClose, onMinimize, isMinimized = false,
                             </Box>
                         </Box>
 
-                        {/* Controls */}
                         <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: { xs: 1, md: 0 } }}>
                             <IconButton
                                 onClick={prevTrack}

@@ -19,9 +19,19 @@
       }
     ]
   },
+  "AmLaw100": {
+    "text": "The definitive ranking of the 100 largest law firms in the United States. Published each spring through the efforts of Law.com Compass and The American Lawyer editorial team, this report offers firm-by-firm data on key financial metrics and deep analysis of the cohort's performance and what it means for the rest of the market. Information includes an examination of revenue, profits, per-lawyer metrics, headcount growth and much more.",
+    "type": "generic",
+    "sources": [
+      {
+        "name": "Law.com - Am Law 100",
+        "hyperlink": "https://www.law.com/americanlawyer/am-law-100/"
+      }
+    ]
+  },
   "baritone": {
     "text": "A type of classical male singing voice with a range between bass and tenor, typically spanning from A2 to A4 in vocal range.",
-    "type": "generic",
+    "type": "personal",
     "sources": [
       {
         "name": "Britannica - Baritone",
@@ -41,7 +51,7 @@
   },
   "copyleft": {
     "text": "A licensing practice that requires derivative works to be distributed under the same or compatible license terms as the original work, ensuring that software and its modifications remain free and open. It is a play on the word 'copyright'.",
-    "type": "academic",
+    "type": "professional",
     "sources": [
       {
         "name": "GNU - What is Copyleft?",
@@ -61,7 +71,7 @@
   },
   "Creative Commons": {
     "text": "A nonprofit organization that provides free licenses allowing creators to share their work legally while retaining certain rights.",
-    "type": "generic",
+    "type": "professional",
     "sources": [
       {
         "name": "Creative Commons Official",
@@ -71,7 +81,7 @@
   },
   "data-mining": {
     "text": "The process of discovering patterns, correlations, and insights from large datasets using computational methods, often involving automated extraction and analysis of information.",
-    "type": "academic",
+    "type": "professional",
     "sources": [
       {
         "name": "IBM - What is Data Mining?",
@@ -86,7 +96,7 @@
   },
   "informed policy": {
     "text": "Public policy decisions and regulations that are based on thorough research, expert analysis, and evidence-based understanding of the issues at hand.",
-    "type": "professional",
+    "type": "academic",
     "sources": [
       {
         "name": "National Conferaence of State Legislatures - Informed Policymaking",
@@ -106,7 +116,7 @@
   },
   "internet-as-a-corpus": {
     "text": "The concept of treating the entirety of internet content as a large dataset or corpus for training machine learning models, particularly language models, often without explicit permission from content creators.",
-    "type": "academic",
+    "type": "professional",
     "sources": [
       {
         "name": "Lund University - Using the World Wide Web as a corpus",
@@ -156,7 +166,7 @@
   },
   "Milford High School": {
     "text": "A public high school located in Milford, Massachusetts, serving students in grades 9-12.",
-    "type": "personal",
+    "type": "academic",
     "sources": [
       {
         "name": "Milford Public Schools",
@@ -166,7 +176,7 @@
   },
   "MIT License": {
     "text": "A permissive free software license originating at the Massachusetts Institute of Technology. It is a simple and permissive license that allows users to do almost anything with the licensed code, including using, copying, modifying, merging, publishing, distributing, sublicensing, and selling, with minimal restrictions.",
-    "type": "academic",
+    "type": "professional",
     "sources": [
       {
         "name": "Open Source Initiative - MIT License",
@@ -196,7 +206,7 @@
   },
   "open-source": {
     "text": "Software whose source code is publicly available and can be freely used, modified, and distributed.",
-    "type": "generic",
+    "type": "professional",
     "sources": [
       {
         "name": "Open Source Initiative",
@@ -206,7 +216,7 @@
   },
   "Open Source Initiative": {
     "text": "A non-profit organization dedicated to promoting and protecting open source software, development, and communities. It maintains the Open Source Definition and approves open source licenses.",
-    "type": "academic",
+    "type": "professional",
     "sources": [
       {
         "name": "Open Source Initiative Official",
@@ -230,7 +240,7 @@
   },
   "public domain": {
     "text": "Works that are not protected by intellectual property rights and are available for anyone to use freely.",
-    "type": "generic",
+    "type": "professional",
     "sources": [
       {
         "name": "U.S. Copyright Office",
@@ -240,7 +250,7 @@
   },
   "robots.txt": {
     "text": "A text file placed in a website's root directory that provides instructions to web crawlers and bots about which parts of the site should not be accessed or indexed. Compliance with robots.txt is voluntary and not legally enforceable.",
-    "type": "academic",
+    "type": "professional",
     "sources": [
       {
         "name": "Google - Introduction to robots.txt",
@@ -270,7 +280,7 @@
   },
   "Web-scrapers": {
     "text": "Automated tools or bots that systematically browse websites to extract data, often used for data mining, content aggregation, or building training datasets for machine learning.",
-    "type": "academic",
+    "type": "professional",
     "sources": [
       {
         "name": "Wikipedia - Web scraping",

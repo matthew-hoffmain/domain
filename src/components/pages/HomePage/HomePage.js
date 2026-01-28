@@ -60,7 +60,7 @@ export default function HomePage() {
     const currentArticle = processedArticles[currentIndex];
 
     return (
-        <Container maxWidth={'100%'}  sx={{ mt: 8, mb: 6 }}>
+        <Container maxWidth={'100%'} sx={{ mt: 8, mb: 6 }}>
             <AnimatePresence>
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
@@ -122,7 +122,7 @@ export default function HomePage() {
                             display: 'flex',
                             flexDirection: 'column',
                             padding: 1,
-                            opacity: imageInfoHovered ? 0 : 1,
+                            opacity: imageInfoHovered ? 0 : .9,
                             transition: 'opacity 0.2s'
                         }}>
                             <Box

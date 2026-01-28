@@ -6,7 +6,7 @@
     position: relative;
     display: inline-block;
     padding: 0 4px;
-    background: linear-gradient(to right, #2e7d32 0%, #2e7d32 50%, #333 50%, #333 100%);
+    background: linear-gradient(to right, #0d47a1 0%, #0d47a1 50%, #333 50%, #333 100%);
     background-size: 200% 100%;
     background-position: 100% 0;
     background-clip: text;
@@ -29,7 +29,7 @@
     left: 0;
     width: 0;
     height: 100%;
-    background-color: #e8f5e8;
+    background-color: #e3f2fd;
     transition: width 0.5s ease-out;
     z-index: -1;
 }

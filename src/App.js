@@ -20,6 +20,7 @@ export default function App() {
     const [isPlaying, setIsPlaying] = React.useState(false);
     const [selectedPlaylist, setSelectedPlaylist] = React.useState(null);
     const [startingTrack, setStartingTrack] = React.useState(0);
+    const [autoplay, setAutoplay] = React.useState(false);
     const topRef = React.useRef(null);
 
     const handleCloseMusicPlayer = () => {
@@ -34,6 +35,7 @@ export default function App() {
 
     const handleToggleMusicPlayer = () => {
         if (!showMusicPlayer) {
+            setAutoplay(false);
             setShowMusicPlayer(true);
             setIsMinimized(false);
         } else if (isMinimized) {
@@ -46,6 +48,7 @@ export default function App() {
     const handlePlayPlaylist = (playlist, trackIndex = 0) => {
         setSelectedPlaylist(playlist);
         setStartingTrack(trackIndex);
+        setAutoplay(true);
         setShowMusicPlayer(true);
         setIsMinimized(false);
     };
@@ -83,6 +86,7 @@ export default function App() {
                     onPlayingStateChange={setIsPlaying}
                     playlist={selectedPlaylist}
                     startingTrack={startingTrack}
+                    autoplay={autoplay}
                 />
             )}
         </div>

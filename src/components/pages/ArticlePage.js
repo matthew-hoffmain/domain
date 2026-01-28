@@ -156,7 +156,7 @@ export default function ArticlePage() {
                     }}>
                         {previousArticle ? (
                             <Button
-                                variant="outlined"
+                                variant="contained"
                                 startIcon={<ArrowBackIcon />}
                                 onClick={() => navigate(`/articles/${previousArticle.id}`)}
                                 sx={{
@@ -189,7 +189,7 @@ export default function ArticlePage() {
 
                         {nextArticle ? (
                             <Button
-                                variant="outlined"
+                                variant="contained"
                                 endIcon={<ArrowForwardIcon />}
                                 onClick={() => navigate(`/articles/${nextArticle.id}`)}
                                 sx={{
