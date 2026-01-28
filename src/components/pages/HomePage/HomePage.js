@@ -213,7 +213,7 @@ export default function HomePage() {
 
                                     <Box
                                         sx={{
-                                            fontSize: { xs: '0.875rem', md: '1.125rem' },
+                                            fontSize: { xs: '0.875rem', md: '2rem' },
                                             lineHeight: 1.4,
                                             flexGrow: 1,
                                             display: { xs: 'none', md: 'flex' },
@@ -224,7 +224,10 @@ export default function HomePage() {
                                             py: { md: 3 }
                                         }}
                                     >
-                                        <MarkdownWithTooltips color="text.secondary">
+                                        <MarkdownWithTooltips color="text.secondary"
+                                                              sx={{
+                                                                  fontSize: { xs: '1rem', md: '1.15rem' }
+                                                              }}>
                                             {currentArticle.excerpt}
                                         </MarkdownWithTooltips>
                                     </Box>
