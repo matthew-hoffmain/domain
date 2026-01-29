@@ -132,7 +132,7 @@ export default function DictionaryPage() {
                         <HighlightImage
                             imageSrc={smithsonianImage}
                             imageTitle="Smithsonian Institution Building"
-                            imageCreator="Public Domain"
+                            imageCreator="Matthew Hoffman"
                             licenseUrl="https://creativecommons.org/licenses/by/4.0/"
                             licenseText="CC BY 4.0 License"
                             downloadFileName="Smithsonian_Institution.jpeg"
