@@ -133,8 +133,8 @@ export default function DictionaryPage() {
                             imageSrc={smithsonianImage}
                             imageTitle="Smithsonian Institution Building"
                             imageCreator="Public Domain"
-                            licenseUrl="https://www.si.edu/termsofuse"
-                            licenseText="Smithsonian Terms of Use"
+                            licenseUrl="https://creativecommons.org/licenses/by/4.0/"
+                            licenseText="CC BY 4.0 License"
                             downloadFileName="Smithsonian_Institution.jpeg"
                             height={isMobile ? 350 : 400}
                             onInfoHoverChange={setImageInfoHovered}
