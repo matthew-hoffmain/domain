@@ -249,32 +249,14 @@ export default function LicensingPage() {
 
                     <Divider sx={{ my: 4 }} />
 
-                    {/* Questions */}
-                    <Box sx={{ mb: 4, textAlign: 'center' }}>
+                    <Box sx={{ textAlign: 'center' }}>
                         <Typography variant="h6" gutterBottom sx={{ fontFamily: 'Times New Roman, serif' }}>
                             Questions About Licensing?
                         </Typography>
                         <Typography variant="body1">
                             <MarkdownWithTooltips>
-                                Check out the **[[FAQ]]** page or visit [Choose a License](https://choosealicense.com/) for more information
+                                Visit [Choose a License](https://choosealicense.com/) for more information
                                 about open-source licensing.
-                            </MarkdownWithTooltips>
-                        </Typography>
-                    </Box>
-
-                    <Box
-                        sx={{
-                            bgcolor: isDarkMode ? '#1a1a1a' : '#f5f5f5',
-                            p: 3,
-                            borderRadius: 2,
-                            border: `2px solid ${isDarkMode ? '#90caf9' : '#1976d2'}`,
-                            textAlign: 'center',
-                        }}
-                    >
-                        <Typography variant="body1" sx={{ fontStyle: 'italic' }}>
-                            <MarkdownWithTooltips>
-                                **Remember:** You can borrow, modify, and alter anything you find here, but you can't steal anything because
-                                it already belongs to you. The only requirement is that you comply with the terms of the respective licenses.
                             </MarkdownWithTooltips>
                         </Typography>
                     </Box>

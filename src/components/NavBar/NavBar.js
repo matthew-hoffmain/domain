@@ -206,7 +206,7 @@ export default function NavBar({ setShowMusicPlayer, showMusicPlayer, isMinimize
                     marginBottom: { xs: 0, md: 2 }
                 }}>
                     <Box sx={{ padding: 1, display: 'flex', alignItems: 'center', gap: 0.5, flexWrap: 'nowrap' }}>
-                        <StyledTooltip
+                        <Tooltip
                             title={
                                 <Box
                                     onClick={(e) => {
@@ -235,7 +235,7 @@ export default function NavBar({ setShowMusicPlayer, showMusicPlayer, isMinimize
                             >
                                 {highlightEnabled ? <HighlightIcon /> : <HighlightOffIcon />}
                             </Button>
-                        </StyledTooltip>
+                        </Tooltip>
                         <Tooltip title={getMusicPlayerTooltip()}>
                             <Button
                                 variant='contained'
