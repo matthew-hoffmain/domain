@@ -38,7 +38,7 @@ const processedArticles = articlesDict.map((article, index) => ({
     ...article,
     category: article.category || "Article",
     color: article.color || defaultColors[index % defaultColors.length],
-    link: article.link || `/articles/${article.id}`
+    link: article.link || `/articles/${article.folder}`
 }));
 
 export default function HomePage() {

@@ -8,19 +8,19 @@ import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 
 export default function ArticlePage() {
-    const { id } = useParams();
+    const { folder } = useParams();
     const navigate = useNavigate();
     const [articleContent, setArticleContent] = useState([]);
     const [article, setArticle] = useState(null);
 
-    const currentIndex = ArticlesDict.findIndex(a => a.id === parseInt(id));
+    const currentIndex = ArticlesDict.findIndex(a => a.folder === folder);
     const previousArticle = currentIndex > 0 ? ArticlesDict[currentIndex - 1] : null;
     const nextArticle = currentIndex < ArticlesDict.length - 1 ? ArticlesDict[currentIndex + 1] : null;
 
     useEffect(() => {
         window.scrollTo(0, 0);
 
-        const foundArticle = ArticlesDict.find(a => a.id === parseInt(id));
+        const foundArticle = ArticlesDict.find(a => a.folder === folder);
         if (!foundArticle) {
             setArticle(null);
             return;
@@ -29,11 +29,11 @@ export default function ArticlePage() {
 
         const loadContent = async () => {
             const content = [];
-            const folder = foundArticle.folder;
+            const articleFolder = foundArticle.folder;
 
             for (let fileIndex = 1; fileIndex <= 30; fileIndex++) {
                 try {
-                    const mdPath = require(`../../static/articles/${folder}/${fileIndex}.md`);
+                    const mdPath = require(`../../static/articles/${articleFolder}/${fileIndex}.md`);
                     const response = await fetch(mdPath);
                     const text = await response.text();
                     content.push({ type: 'markdown', content: text, index: fileIndex });
@@ -46,7 +46,7 @@ export default function ArticlePage() {
             for (let i = 1; i <= 30; i++) {
                 for (const ext of imageExtensions) {
                     try {
-                        const imgPath = require(`../../static/image/${folder}/${i}.${ext}`);
+                        const imgPath = require(`../../static/image/${articleFolder}/${i}.${ext}`);
                         content.push({ type: 'image', content: imgPath, index: i });
                         break;
                     } catch (error) {
@@ -59,7 +59,7 @@ export default function ArticlePage() {
         };
 
         loadContent();
-    }, [id]);
+    }, [folder]);
 
     if (!article) {
         return (
@@ -158,7 +158,7 @@ export default function ArticlePage() {
                             <Button
                                 variant="contained"
                                 startIcon={<ArrowBackIcon />}
-                                onClick={() => navigate(`/articles/${previousArticle.id}`)}
+                                onClick={() => navigate(`/articles/${previousArticle.folder}`)}
                                 sx={{
                                     textTransform: 'none',
                                     maxWidth: { xs: '100%', sm: '45%' },
@@ -191,7 +191,7 @@ export default function ArticlePage() {
                             <Button
                                 variant="contained"
                                 endIcon={<ArrowForwardIcon />}
-                                onClick={() => navigate(`/articles/${nextArticle.id}`)}
+                                onClick={() => navigate(`/articles/${nextArticle.folder}`)}
                                 sx={{
                                     textTransform: 'none',
                                     maxWidth: { xs: '100%', sm: '45%' },

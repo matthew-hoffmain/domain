@@ -73,7 +73,7 @@ export default function App() {
                 <Route path="/dictionary" element={<DictionaryPage/>} />
                 <Route path="/licensing" element={<LicensingPage/>} />
                 <Route path="/easter_egg" element={<EasterEggPage/>} />
-                <Route path="/articles/:id" element={<ArticlePage/>}/>
+                <Route path="/articles/:folder" element={<ArticlePage/>}/>
             </Routes>
 
             <Footer />
