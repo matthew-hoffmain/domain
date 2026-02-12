@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.8e549c1c.css",
-    "main.js": "/static/js/main.45065f22.js",
+    "main.js": "/static/js/main.8e419c6b.js",
     "static/media/op_55_no_1_matthew_hoffman.wav": "/static/media/op_55_no_1_matthew_hoffman.13bc6f2300d83385729b.wav",
     "static/media/prelude_in_c_matthew_hoffman.wav": "/static/media/prelude_in_c_matthew_hoffman.65bf2e645ecb1155f8f9.wav",
     "static/media/Classicals.de - Chopin - Nocturne Op. 48 no. 2 F-sharp minor.mp3": "/static/media/Classicals.de - Chopin - Nocturne Op. 48 no. 2 F-sharp minor.3aadad87559381be2431.mp3",
@@ -64,10 +64,10 @@
     "static/media/22.md": "/static/media/22.e098881bd605d8736b87.md",
     "static/media/12.md": "/static/media/12.57ce5e38783be37366c7.md",
     "main.8e549c1c.css.map": "/static/css/main.8e549c1c.css.map",
-    "main.45065f22.js.map": "/static/js/main.45065f22.js.map"
+    "main.8e419c6b.js.map": "/static/js/main.8e419c6b.js.map"
   },
   "entrypoints": [
     "static/css/main.8e549c1c.css",
-    "static/js/main.45065f22.js"
+    "static/js/main.8e419c6b.js"
   ]
 }
