@@ -2,7 +2,7 @@ import React from 'react';
 import {Route, Routes} from "react-router";
 import './App.css';
 import HomePage from "./components/pages/HomePage/HomePage";
-import DictionaryPage from "./components/pages/DictionaryPage";
+import GlossaryPage from "./components/pages/GlossaryPage";
 import RadioPage from "./components/pages/RadioPage";
 import NavBar from "./components/NavBar/NavBar";
 import AboutMePage from "./components/pages/AboutMePage";
@@ -70,7 +70,7 @@ export default function App() {
                 <Route path="/about_me" element={<AboutMePage topRef={topRef}/>} />
                 <Route path="/pdf/:file" element={<PDFViewerPage />} />
                 <Route path="/radio" element={<RadioPage onPlayPlaylist={handlePlayPlaylist}/>} />
-                <Route path="/dictionary" element={<DictionaryPage/>} />
+                <Route path="/glossary" element={<GlossaryPage/>} />
                 <Route path="/licensing" element={<LicensingPage/>} />
                 <Route path="/easter_egg" element={<EasterEggPage/>} />
                 <Route path="/articles/:folder" element={<ArticlePage/>}/>

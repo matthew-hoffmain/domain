@@ -99,7 +99,7 @@ const TooltipContent = ({ content, term }) => {
         e.stopPropagation();
         if (term) {
             const termId = term.toLowerCase().replace(/\s+/g, '-');
-            navigate(`/dictionary#term-${termId}`);
+            navigate(`/glossary#term-${termId}`);
         }
     };
 

@@ -10,7 +10,7 @@ import ExternalLinkModal from "../ExternalLinkModal";
 import HighlightImage from "../HighlightImage";
 import smithsonianImage from "../../static/image/Smithsonian_Institution.jpeg";
 
-export default function DictionaryPage() {
+export default function GlossaryPage() {
     const location = useLocation();
     const navigate = useNavigate();
     const [highlightedTerm, setHighlightedTerm] = useState(null);

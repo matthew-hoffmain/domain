@@ -11,7 +11,7 @@ export default function FAQPage() {
             <MarkdownWithTooltips align={"justify"}>
                 {'The [[highlights]] you see throughout the website are interactive. Hovering over any highlighted ' +
                     'word will display a tooltip containing its definition. You can view all the definitions of all words ' +
-                    'by visiting the dictionary page [here](/dictionary).'}
+                    'by visiting the glossary page [here](/glossary).'}
             </MarkdownWithTooltips>
             <Accordion disableGutters>
                 <AccordionSummary expandIcon={<ExpandMoreIcon />}>
@@ -32,7 +32,7 @@ export default function FAQPage() {
                 </AccordionSummary>
                 <AccordionDetails>
                     <MarkdownWithTooltips align={"justify"}>
-                        {'The source of each definition is viewable from the dictionary page, which can be accessed ' +
+                        {'The source of each definition is viewable from the glossary page, which can be accessed ' +
                             'by clicking the info icon inside the definition tooltips.'}
                     </MarkdownWithTooltips>
                 </AccordionDetails>

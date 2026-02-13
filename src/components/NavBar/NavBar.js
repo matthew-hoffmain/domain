@@ -75,11 +75,11 @@ export default function NavBar({ setShowMusicPlayer, showMusicPlayer, isMinimize
             ariaLabel: 'radio'
         },
         {
-            id: 'dictionary',
-            title: 'Dictionary',
-            path: '/dictionary',
+            id: 'glossary',
+            title: 'Glossary',
+            path: '/glossary',
             icon: AbcIcon,
-            ariaLabel: 'dictionary'
+            ariaLabel: 'glossary'
         },
         {
             id: 'resume',
@@ -211,7 +211,7 @@ export default function NavBar({ setShowMusicPlayer, showMusicPlayer, isMinimize
                                 <Box
                                     onClick={(e) => {
                                         e.stopPropagation();
-                                        navigate('/dictionary#term-highlights');
+                                        navigate('/glossary#term-highlights');
                                     }}
                                     sx={{
                                         cursor: 'pointer',
