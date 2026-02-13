@@ -9,7 +9,6 @@ import HighlightImage from '../../HighlightImage';
 import "./HomePage.css";
 import highlightBackgroundImage from "../../../static/image/Boston_from_the_Longfellow.jpeg";
 import articlesDict from "../../../static/json/articles.json"
-import ExampleImagePage from "../ExampleImageUsage";
 
 const defaultColors = [
     "#3498db", // Blue
