@@ -72,9 +72,9 @@ export default function Footer() {
                         </ExternalLinkModal>
 
                         <ExternalLinkModal
-                            href="https://opensource.org/licenses/MIT"
+                            href="https://github.com/matthew-hoffmain/domain/blob/main/LICENSE"
                             title="MIT License"
-                            message="This will open the MIT License page in a new tab. This license allows anyone to use, modify, and distribute the code."
+                            message="This will open the MIT License for this project in a new tab. This license allows anyone to use, modify, and distribute the code."
                         >
                             <Stack
                                 direction="row"
