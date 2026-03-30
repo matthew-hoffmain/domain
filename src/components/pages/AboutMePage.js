@@ -2,7 +2,7 @@ import Container from "@mui/material/Container";
 import React from "react";
 import MyTimeline from "../MyTimeline";
 import Box from "@mui/material/Box";
-import profileImage from '../../static/image/Watercolor_Portrait_of_Matthew_Hoffman.jpeg';
+import profileImage from '../../static/image/Blue_Steel_Matthew_Hoffman.jpeg';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useThemeMode } from "../contexts/ThemeContext";
 
@@ -39,7 +39,7 @@ export default function AboutMePage({ topRef }) {
                                 height: { xs: 200, sm: 250, md: 300 },
                                 borderRadius: '50%',
                                 objectFit: 'cover',
-                                objectPosition: '50% 10%',
+                                objectPosition: '50% 0%',
                                 boxShadow: 5,
                                 mb: { xs: 3, md: 5 },
                             }}
