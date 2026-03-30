@@ -151,7 +151,7 @@ export default function MyTimeline(props) {
         checkScrollbar();
         window.addEventListener("resize", checkScrollbar);
         return () => window.removeEventListener("resize", checkScrollbar);
-    }, [[], filter]);
+    }, [filter]);
 
     useEffect(() => {
         setMessages(timelineData);
