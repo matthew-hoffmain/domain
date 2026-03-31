@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.d246dc48.css",
-    "main.js": "/static/js/main.8a3966a1.js",
+    "main.js": "/static/js/main.e93447c7.js",
     "static/media/op_55_no_1_matthew_hoffman.wav": "/static/media/op_55_no_1_matthew_hoffman.13bc6f2300d83385729b.wav",
     "static/media/prelude_in_c_matthew_hoffman.wav": "/static/media/prelude_in_c_matthew_hoffman.65bf2e645ecb1155f8f9.wav",
     "static/media/Classicals.de - Chopin - Nocturne Op. 48 no. 2 F-sharp minor.mp3": "/static/media/Classicals.de - Chopin - Nocturne Op. 48 no. 2 F-sharp minor.3aadad87559381be2431.mp3",
@@ -27,12 +27,12 @@
     "static/media/Watercolor_Portrait_of_Matthew_Hoffman.jpeg": "/static/media/Watercolor_Portrait_of_Matthew_Hoffman.86c1014d87f18e441163.jpeg",
     "static/media/a_view_of_the_mountain_pass_called_the_notch_of_the_white_mountains_crawford_notch_1967.8.1.jpg": "/static/media/a_view_of_the_mountain_pass_called_the_notch_of_the_white_mountains_crawford_notch_1967.8.1.17f37d6781a52a411d3d.jpg",
     "static/media/Boston_from_the_Longfellow.jpeg": "/static/media/Boston_from_the_Longfellow.ecb5056b583ae8e743b4.jpeg",
+    "static/media/Blue_Steel_Matthew_Hoffman.jpeg": "/static/media/Blue_Steel_Matthew_Hoffman.d57de22b0d4738ea9169.jpeg",
     "static/media/4.gif": "/static/media/4.7ab8c9f2b2b046c1f441.gif",
     "static/media/2.gif": "/static/media/2.6d89f8e2bfe732b55c05.gif",
     "static/media/hoffman-parallel_processing_final.pdf": "/static/media/hoffman-parallel_processing_final.33e72f1f80a65ad1e1c0.pdf",
     "static/media/26.jpeg": "/static/media/26.6a12b8f4919fc82c0c27.jpeg",
     "static/media/hoffmanmatthew_silverdaniel.pdf": "/static/media/hoffmanmatthew_silverdaniel.b63182958dad95a96480.pdf",
-    "static/media/Blue_Steel_Matthew_Hoffman.jpeg": "/static/media/Blue_Steel_Matthew_Hoffman.584214bce3a843ef1511.jpeg",
     "static/media/Smithsonian_Institution.jpeg": "/static/media/Smithsonian_Institution.67424488d4842e2e4f1c.jpeg",
     "static/media/resume.pdf": "/static/media/resume.fc61863bdf246b782350.pdf",
     "static/media/23.jpeg": "/static/media/23.e467718732a599099735.jpeg",
@@ -65,10 +65,10 @@
     "static/media/22.md": "/static/media/22.e098881bd605d8736b87.md",
     "static/media/12.md": "/static/media/12.57ce5e38783be37366c7.md",
     "main.d246dc48.css.map": "/static/css/main.d246dc48.css.map",
-    "main.8a3966a1.js.map": "/static/js/main.8a3966a1.js.map"
+    "main.e93447c7.js.map": "/static/js/main.e93447c7.js.map"
   },
   "entrypoints": [
     "static/css/main.d246dc48.css",
-    "static/js/main.8a3966a1.js"
+    "static/js/main.e93447c7.js"
   ]
 }
